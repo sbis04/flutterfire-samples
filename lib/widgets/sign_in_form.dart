@@ -1,8 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutterfire_samples/res/custom_colors.dart';
-import 'package:flutterfire_samples/utils/validator.dart';
+
+import 'custom_form_field.dart';
 
 class SignInForm extends StatefulWidget {
+  final FocusNode emailFocusNode;
+  final FocusNode passwordFocusNode;
+
+  const SignInForm({
+    Key? key,
+    required this.emailFocusNode,
+    required this.passwordFocusNode,
+  }) : super(key: key);
   @override
   _SignInFormState createState() => _SignInFormState();
 }
@@ -10,6 +19,7 @@ class SignInForm extends StatefulWidget {
 class _SignInFormState extends State<SignInForm> {
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
+
   final _signInFormKey = GlobalKey<FormState>();
 
   bool _isLoggingIn = false;
@@ -28,14 +38,18 @@ class _SignInFormState extends State<SignInForm> {
             ),
             child: Column(
               children: [
-                TextFormField(
-                  controller: _emailController,
-                  validator: (value) => Validator.validateEmail(email: value),
+                CustomFormField(
+                  emailController: _emailController,
+                  emailFocusNode: widget.emailFocusNode,
+                  label: 'Email',
+                  hint: 'Enter your email',
                 ),
-                TextFormField(
-                  controller: _passwordController,
-                  validator: (value) =>
-                      Validator.validatePassword(password: value),
+                SizedBox(height: 16.0),
+                CustomFormField(
+                  emailController: _passwordController,
+                  emailFocusNode: widget.passwordFocusNode,
+                  label: 'Password',
+                  hint: 'Enter your password',
                 ),
               ],
             ),
@@ -69,7 +83,7 @@ class _SignInFormState extends State<SignInForm> {
                           _isLoggingIn = true;
                         });
 
-                        if (_signInFormKey.currentState.validate()) {
+                        if (_signInFormKey.currentState!.validate()) {
                           print('checked for validation');
                         }
                         // await signInWithGoogle().then((result) {
