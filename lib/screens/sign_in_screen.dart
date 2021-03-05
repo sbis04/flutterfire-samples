@@ -36,9 +36,12 @@ class _SignInScreenState extends State<SignInScreen> {
                     mainAxisSize: MainAxisSize.min,
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Image.asset(
-                        'assets/firebase_logo.png',
-                        height: 160,
+                      Flexible(
+                        flex: 1,
+                        child: Image.asset(
+                          'assets/firebase_logo.png',
+                          height: 160,
+                        ),
                       ),
                       SizedBox(height: 20),
                       Text(
