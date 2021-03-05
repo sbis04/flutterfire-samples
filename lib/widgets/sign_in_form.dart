@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutterfire_samples/res/custom_colors.dart';
+import 'package:flutterfire_samples/utils/validator.dart';
 
 import 'custom_form_field.dart';
 
@@ -41,6 +42,10 @@ class _SignInFormState extends State<SignInForm> {
                 CustomFormField(
                   emailController: _emailController,
                   emailFocusNode: widget.emailFocusNode,
+                  keyboardType: TextInputType.emailAddress,
+                  validator: (value) => Validator.validateEmail(
+                    email: value,
+                  ),
                   label: 'Email',
                   hint: 'Enter your email',
                 ),
@@ -48,6 +53,11 @@ class _SignInFormState extends State<SignInForm> {
                 CustomFormField(
                   emailController: _passwordController,
                   emailFocusNode: widget.passwordFocusNode,
+                  keyboardType: TextInputType.text,
+                  validator: (value) => Validator.validatePassword(
+                    password: value,
+                  ),
+                  isObscure: true,
                   label: 'Password',
                   hint: 'Enter your password',
                 ),
@@ -79,6 +89,9 @@ class _SignInFormState extends State<SignInForm> {
                         ),
                       ),
                       onPressed: () async {
+                        widget.emailFocusNode.unfocus();
+                        widget.passwordFocusNode.unfocus();
+
                         setState(() {
                           _isLoggingIn = true;
                         });
