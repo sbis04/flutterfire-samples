@@ -40,6 +40,22 @@
       });
     }
   </script>
+  <script src="https://www.gstatic.com/firebasejs/7.20.0/firebase-app.js"></script>
+  <!-- Firebase Configuration -->
+  <script>
+    var firebaseConfig = {
+      apiKey: "AIzaSyBIXxQgUPYDU2srK_UpgjiTATON5rrdMd0",
+      authDomain: "flutterfire-samples.firebaseapp.com",
+      projectId: "flutterfire-samples",
+      storageBucket: "flutterfire-samples.appspot.com",
+      messagingSenderId: "132381301913",
+      appId: "1:132381301913:web:f0d0a643bc90bed91eec08",
+      measurementId: "G-ZK5194H8VH"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    firebase.analytics();
+  </script>
   <script src="main.dart.js" type="application/javascript"></script>
 </body>
 </html>
