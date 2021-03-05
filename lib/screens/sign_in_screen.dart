@@ -1,6 +1,8 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutterfire_samples/res/custom_colors.dart';
+import 'package:flutterfire_samples/screens/user_info_screen.dart';
+import 'package:flutterfire_samples/utils/authentication.dart';
 import 'package:flutterfire_samples/widgets/sign_in_form.dart';
 
 class SignInScreen extends StatefulWidget {
@@ -12,7 +14,21 @@ class _SignInScreenState extends State<SignInScreen> {
   final FocusNode _emailFocusNode = FocusNode();
   final FocusNode _passwordFocusNode = FocusNode();
 
-  final Future<FirebaseApp> _initializeFirebase = Firebase.initializeApp();
+  Future<FirebaseApp> _initializeFirebase() async {
+    FirebaseApp firebaseApp = await Firebase.initializeApp();
+
+    bool isUserLoggedIn = Authentication.isLoggedIn();
+
+    if (isUserLoggedIn) {
+      Navigator.of(context).push(
+        MaterialPageRoute(
+          builder: (context) => UserInfoScreen(),
+        ),
+      );
+    }
+
+    return firebaseApp;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -65,7 +81,7 @@ class _SignInScreenState extends State<SignInScreen> {
                   ),
                 ),
                 FutureBuilder(
-                  future: _initializeFirebase,
+                  future: _initializeFirebase(),
                   builder: (context, snapshot) {
                     if (snapshot.hasError) {
                       return Text('Error initializing Firebase');
