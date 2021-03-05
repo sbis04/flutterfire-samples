@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutterfire_samples/res/custom_colors.dart';
+import 'package:flutterfire_samples/screens/register_screen.dart';
 import 'package:flutterfire_samples/utils/validator.dart';
 
 import 'custom_form_field.dart';
@@ -40,9 +41,10 @@ class _SignInFormState extends State<SignInForm> {
             child: Column(
               children: [
                 CustomFormField(
-                  emailController: _emailController,
-                  emailFocusNode: widget.emailFocusNode,
+                  controller: _emailController,
+                  focusNode: widget.emailFocusNode,
                   keyboardType: TextInputType.emailAddress,
+                  inputAction: TextInputAction.next,
                   validator: (value) => Validator.validateEmail(
                     email: value,
                   ),
@@ -51,9 +53,10 @@ class _SignInFormState extends State<SignInForm> {
                 ),
                 SizedBox(height: 16.0),
                 CustomFormField(
-                  emailController: _passwordController,
-                  emailFocusNode: widget.passwordFocusNode,
+                  controller: _passwordController,
+                  focusNode: widget.passwordFocusNode,
                   keyboardType: TextInputType.text,
+                  inputAction: TextInputAction.done,
                   validator: (value) => Validator.validatePassword(
                     password: value,
                   ),
@@ -129,6 +132,23 @@ class _SignInFormState extends State<SignInForm> {
                     ),
                   ),
                 ),
+          SizedBox(height: 16.0),
+          InkWell(
+            onTap: () {
+              Navigator.of(context).pushReplacement(
+                MaterialPageRoute(
+                  builder: (context) => RegisterScreen(),
+                ),
+              );
+            },
+            child: Text(
+              'Don\'t have an account? Sign up',
+              style: TextStyle(
+                color: CustomColors.firebaseGrey,
+                letterSpacing: 0.5,
+              ),
+            ),
+          )
         ],
       ),
     );
