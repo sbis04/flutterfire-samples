@@ -4,16 +4,19 @@ import 'package:flutterfire_samples/res/custom_colors.dart';
 class CustomFormField extends StatelessWidget {
   const CustomFormField({
     Key? key,
-    required TextEditingController emailController,
-    required FocusNode emailFocusNode,
+    required TextEditingController controller,
+    required FocusNode focusNode,
     required TextInputType keyboardType,
+    required TextInputAction inputAction,
     required String label,
     required String hint,
     required Function(String value) validator,
     this.isObscure = false,
-  })  : _emailController = emailController,
-        _emailFocusNode = emailFocusNode,
+    this.isCapitalized = false,
+  })  : _emailController = controller,
+        _emailFocusNode = focusNode,
         _keyboardtype = keyboardType,
+        _inputAction = inputAction,
         _label = label,
         _hint = hint,
         _validator = validator,
@@ -22,9 +25,11 @@ class CustomFormField extends StatelessWidget {
   final TextEditingController _emailController;
   final FocusNode _emailFocusNode;
   final TextInputType _keyboardtype;
+  final TextInputAction _inputAction;
   final String _label;
   final String _hint;
   final bool isObscure;
+  final bool isCapitalized;
   final Function(String) _validator;
 
   @override
@@ -34,6 +39,9 @@ class CustomFormField extends StatelessWidget {
       focusNode: _emailFocusNode,
       keyboardType: _keyboardtype,
       obscureText: isObscure,
+      textCapitalization:
+          isCapitalized ? TextCapitalization.words : TextCapitalization.none,
+      textInputAction: _inputAction,
       cursorColor: CustomColors.firebaseYellow,
       validator: (value) => _validator(value!),
       decoration: InputDecoration(
