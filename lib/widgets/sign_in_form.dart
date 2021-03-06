@@ -1,6 +1,9 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutterfire_samples/res/custom_colors.dart';
 import 'package:flutterfire_samples/screens/register_screen.dart';
+import 'package:flutterfire_samples/screens/user_info_screen.dart';
+import 'package:flutterfire_samples/utils/authentication.dart';
 import 'package:flutterfire_samples/utils/validator.dart';
 
 import 'custom_form_field.dart';
@@ -24,7 +27,7 @@ class _SignInFormState extends State<SignInForm> {
 
   final _signInFormKey = GlobalKey<FormState>();
 
-  bool _isLoggingIn = false;
+  bool _isSigningIn = false;
 
   @override
   Widget build(BuildContext context) {
@@ -67,7 +70,7 @@ class _SignInFormState extends State<SignInForm> {
               ],
             ),
           ),
-          _isLoggingIn
+          _isSigningIn
               ? Padding(
                   padding: const EdgeInsets.all(16.0),
                   child: CircularProgressIndicator(
@@ -96,24 +99,30 @@ class _SignInFormState extends State<SignInForm> {
                         widget.passwordFocusNode.unfocus();
 
                         setState(() {
-                          _isLoggingIn = true;
+                          _isSigningIn = true;
                         });
 
                         if (_signInFormKey.currentState!.validate()) {
-                          print('checked for validation');
+                          User? user =
+                              await Authentication.signInUsingEmailPassword(
+                            context: context,
+                            email: _emailController.text,
+                            password: _passwordController.text,
+                          );
+
+                          if (user != null) {
+                            Navigator.of(context).pushReplacement(
+                              MaterialPageRoute(
+                                builder: (context) => UserInfoScreen(
+                                  user: user,
+                                ),
+                              ),
+                            );
+                          }
                         }
-                        // await signInWithGoogle().then((result) {
-                        //   if (result != null) {
-                        //     Navigator.of(context).pushReplacement(
-                        //       MaterialPageRoute(
-                        //         builder: (context) => NamePage(),
-                        //       ),
-                        //     );
-                        //   }
-                        // }).catchError(
-                        //     (e) => print('Google sign in error: $e'));
+
                         setState(() {
-                          _isLoggingIn = false;
+                          _isSigningIn = false;
                         });
                       },
                       child: Padding(
@@ -121,7 +130,6 @@ class _SignInFormState extends State<SignInForm> {
                         child: Text(
                           'LOGIN',
                           style: TextStyle(
-                            fontFamily: 'Raleway',
                             fontSize: 24,
                             fontWeight: FontWeight.bold,
                             color: CustomColors.firebaseGrey,
