@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutterfire_samples/res/custom_colors.dart';
+import 'package:flutterfire_samples/widgets/app_bar_title.dart';
 import 'package:flutterfire_samples/widgets/register_form.dart';
 
 class RegisterScreen extends StatefulWidget {
@@ -25,31 +26,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
         appBar: AppBar(
           elevation: 0,
           backgroundColor: CustomColors.firebaseNavy,
-          title: Row(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Image.asset(
-                'assets/firebase_logo.png',
-                height: 20,
-              ),
-              SizedBox(width: 8),
-              Text(
-                'FlutterFire',
-                style: TextStyle(
-                  color: CustomColors.firebaseYellow,
-                  fontSize: 18,
-                ),
-              ),
-              Text(
-                ' Authentication',
-                style: TextStyle(
-                  color: CustomColors.firebaseOrange,
-                  fontSize: 18,
-                ),
-              ),
-            ],
-          ),
+          title: AppBarTitle(),
         ),
         body: SafeArea(
           child: Padding(
