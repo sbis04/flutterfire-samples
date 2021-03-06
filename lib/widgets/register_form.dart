@@ -1,6 +1,9 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutterfire_samples/res/custom_colors.dart';
 import 'package:flutterfire_samples/screens/sign_in_screen.dart';
+import 'package:flutterfire_samples/screens/user_info_screen.dart';
+import 'package:flutterfire_samples/utils/authentication.dart';
 import 'package:flutterfire_samples/utils/validator.dart';
 
 import 'custom_form_field.dart';
@@ -27,7 +30,7 @@ class _RegisterFormState extends State<RegisterForm> {
 
   final _registerFormKey = GlobalKey<FormState>();
 
-  bool _isLoggingIn = false;
+  bool _isSingningUp = false;
 
   Route _routeToSignInScreen() {
     return PageRouteBuilder(
@@ -68,8 +71,8 @@ class _RegisterFormState extends State<RegisterForm> {
                   keyboardType: TextInputType.name,
                   inputAction: TextInputAction.next,
                   isCapitalized: true,
-                  validator: (value) => Validator.validateEmail(
-                    email: value,
+                  validator: (value) => Validator.validateName(
+                    name: value,
                   ),
                   label: 'Name',
                   hint: 'Enter your name',
@@ -103,7 +106,7 @@ class _RegisterFormState extends State<RegisterForm> {
             ),
           ),
           SizedBox(height: 24.0),
-          _isLoggingIn
+          _isSingningUp
               ? Padding(
                   padding: const EdgeInsets.all(16.0),
                   child: CircularProgressIndicator(
@@ -132,24 +135,30 @@ class _RegisterFormState extends State<RegisterForm> {
                         widget.passwordFocusNode.unfocus();
 
                         setState(() {
-                          _isLoggingIn = true;
+                          _isSingningUp = true;
                         });
 
                         if (_registerFormKey.currentState!.validate()) {
-                          print('checked for validation');
+                          User? user =
+                              await Authentication.registerUsingEmailPassword(
+                            name: _nameController.text,
+                            email: _emailController.text,
+                            password: _passwordController.text,
+                          );
+
+                          if (user != null) {
+                            Navigator.of(context).pushReplacement(
+                              MaterialPageRoute(
+                                builder: (context) => UserInfoScreen(
+                                  user: user,
+                                ),
+                              ),
+                            );
+                          }
                         }
-                        // await signInWithGoogle().then((result) {
-                        //   if (result != null) {
-                        //     Navigator.of(context).pushReplacement(
-                        //       MaterialPageRoute(
-                        //         builder: (context) => NamePage(),
-                        //       ),
-                        //     );
-                        //   }
-                        // }).catchError(
-                        //     (e) => print('Google sign in error: $e'));
+
                         setState(() {
-                          _isLoggingIn = false;
+                          _isSingningUp = false;
                         });
                       },
                       child: Padding(
@@ -157,7 +166,6 @@ class _RegisterFormState extends State<RegisterForm> {
                         child: Text(
                           'REGISTER',
                           style: TextStyle(
-                            fontFamily: 'Raleway',
                             fontSize: 24,
                             fontWeight: FontWeight.bold,
                             color: CustomColors.firebaseGrey,
