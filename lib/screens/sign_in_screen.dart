@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutterfire_samples/res/custom_colors.dart';
@@ -17,12 +18,14 @@ class _SignInScreenState extends State<SignInScreen> {
   Future<FirebaseApp> _initializeFirebase() async {
     FirebaseApp firebaseApp = await Firebase.initializeApp();
 
-    bool isUserLoggedIn = Authentication.isLoggedIn();
+    User? user = Authentication.isLoggedIn();
 
-    if (isUserLoggedIn) {
-      Navigator.of(context).push(
+    if (user != null) {
+      Navigator.of(context).pushReplacement(
         MaterialPageRoute(
-          builder: (context) => UserInfoScreen(),
+          builder: (context) => UserInfoScreen(
+            user: user,
+          ),
         ),
       );
     }
