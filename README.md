@@ -1,6 +1,6 @@
-# flutterfire_samples
+# FlutterFire Samples
 
-A new Flutter project.
+This is a sample app demonstrating **Firebase Authentication** in Flutter using email & password. Also shows how to send *email verification* and set up *auto login*.
 
 ## Getting Started
 
