@@ -72,8 +72,7 @@ class _UserInfoScreenState extends State<UserInfoScreen> {
               Row(),
               ClipOval(
                 child: Material(
-                  color: CustomColors.firebaseGrey
-                      .withOpacity(0.3), // button color
+                  color: CustomColors.firebaseGrey.withOpacity(0.3),
                   child: Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: Icon(

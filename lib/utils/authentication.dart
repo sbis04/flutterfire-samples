@@ -12,12 +12,6 @@ class Authentication {
     );
   }
 
-  static User? isLoggedIn() {
-    User? user = FirebaseAuth.instance.currentUser;
-
-    return user;
-  }
-
   static Future<User?> signInUsingEmailPassword({
     required String email,
     required String password,

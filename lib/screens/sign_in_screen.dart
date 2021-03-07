@@ -3,7 +3,6 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutterfire_samples/res/custom_colors.dart';
 import 'package:flutterfire_samples/screens/user_info_screen.dart';
-import 'package:flutterfire_samples/utils/authentication.dart';
 import 'package:flutterfire_samples/widgets/sign_in_form.dart';
 
 class SignInScreen extends StatefulWidget {
@@ -18,7 +17,7 @@ class _SignInScreenState extends State<SignInScreen> {
   Future<FirebaseApp> _initializeFirebase() async {
     FirebaseApp firebaseApp = await Firebase.initializeApp();
 
-    User? user = Authentication.isLoggedIn();
+    User? user = FirebaseAuth.instance.currentUser;
 
     if (user != null) {
       Navigator.of(context).pushReplacement(
