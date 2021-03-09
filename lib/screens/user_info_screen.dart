@@ -125,9 +125,7 @@ class _UserInfoScreenState extends State<UserInfoScreen> {
               SizedBox(height: 16.0),
               _isSigningOut
                   ? CircularProgressIndicator(
-                      valueColor: AlwaysStoppedAnimation<Color>(
-                        Colors.redAccent,
-                      ),
+                      valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
                     )
                   : ElevatedButton(
                       style: ButtonStyle(
