@@ -3,7 +3,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutterfire_samples/res/custom_colors.dart';
 import 'package:flutterfire_samples/screens/user_info_screen.dart';
-import 'package:flutterfire_samples/widgets/sign_in_form.dart';
+import 'package:flutterfire_samples/widgets/google_sign_in_button.dart';
 
 class SignInScreen extends StatefulWidget {
   @override
@@ -89,10 +89,7 @@ class _SignInScreenState extends State<SignInScreen> {
                       return Text('Error initializing Firebase');
                     } else if (snapshot.connectionState ==
                         ConnectionState.done) {
-                      return SignInForm(
-                        emailFocusNode: _emailFocusNode,
-                        passwordFocusNode: _passwordFocusNode,
-                      );
+                      return GoogleSignInButton();
                     }
                     return CircularProgressIndicator(
                       valueColor: AlwaysStoppedAnimation<Color>(
@@ -100,11 +97,7 @@ class _SignInScreenState extends State<SignInScreen> {
                       ),
                     );
                   },
-                )
-                // SignInForm(
-                //   emailFocusNode: _emailFocusNode,
-                //   passwordFocusNode: _passwordFocusNode,
-                // ),
+                ),
               ],
             ),
           ),
