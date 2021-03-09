@@ -35,6 +35,10 @@ class _GoogleSignInButtonState extends State<GoogleSignInButton> {
                 User? user =
                     await Authentication.signInWithGoogle(context: context);
 
+                setState(() {
+                  _isSigningIn = false;
+                });
+
                 if (user != null) {
                   Navigator.of(context).pushReplacement(
                     MaterialPageRoute(
@@ -44,9 +48,6 @@ class _GoogleSignInButtonState extends State<GoogleSignInButton> {
                     ),
                   );
                 }
-                setState(() {
-                  _isSigningIn = false;
-                });
               },
               child: Padding(
                 padding: const EdgeInsets.fromLTRB(0, 10, 0, 10),

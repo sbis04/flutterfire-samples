@@ -66,19 +66,29 @@ class _UserInfoScreenState extends State<UserInfoScreen> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Row(),
-              ClipOval(
-                child: Material(
-                  color: CustomColors.firebaseGrey.withOpacity(0.3),
-                  child: Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Icon(
-                      Icons.person,
-                      size: 42,
-                      color: CustomColors.firebaseGrey,
+              _user.photoURL != null
+                  ? ClipOval(
+                      child: Material(
+                        color: CustomColors.firebaseGrey.withOpacity(0.3),
+                        child: Image.network(
+                          _user.photoURL!,
+                          fit: BoxFit.fitHeight,
+                        ),
+                      ),
+                    )
+                  : ClipOval(
+                      child: Material(
+                        color: CustomColors.firebaseGrey.withOpacity(0.3),
+                        child: Padding(
+                          padding: const EdgeInsets.all(16.0),
+                          child: Icon(
+                            Icons.person,
+                            size: 60,
+                            color: CustomColors.firebaseGrey,
+                          ),
+                        ),
+                      ),
                     ),
-                  ),
-                ),
-              ),
               SizedBox(height: 16.0),
               Text(
                 'Hello',
