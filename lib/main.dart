@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutterfire_samples/screens/sign_in_screen.dart';
+
+import 'screens/sign_in_screen.dart';
 
 void main() {
   runApp(MyApp());
