@@ -83,14 +83,14 @@ class Authentication {
             ScaffoldMessenger.of(context).showSnackBar(
               Authentication.customSnackBar(
                 content:
-                    'Error occured while accessing credentials. Try again.',
+                    'Error occurred while accessing credentials. Try again.',
               ),
             );
           }
         } catch (e) {
           ScaffoldMessenger.of(context).showSnackBar(
             Authentication.customSnackBar(
-              content: 'Error occured using Google Sign In. Try again.',
+              content: 'Error occurred using Google Sign In. Try again.',
             ),
           );
         }
