@@ -22,9 +22,10 @@ The `master` branch is currently having the implementation for Firebase Authenti
 The aim of this repo is to include examples for:
 
 - [ ] **Authentication**
-  - [ ] Email & password registration & login
+  - [x] Email & password registration & login
+  - [x] Login using various providers (Google, GitHub, Apple, etc.)*
   - [ ] Phone OTP verification
-  - [ ] Login using various providers (Google, GitHub, Apple, etc.)
+
 
 - [ ] **Database**
   - [ ] CRUD operations on Firebase Cloud Firestore
@@ -48,6 +49,8 @@ The aim of this repo is to include examples for:
   - [ ] In-app messaging
   - [ ] Dynamic Linking
   - [ ] Firebase extensions (BETA)
+
+> *Only Google Sign-In implemented currently.
 
 ---
 
