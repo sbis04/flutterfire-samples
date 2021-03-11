@@ -1,5 +1,58 @@
 # FlutterFire Samples
 
+This repo is created to contain various sample apps demonstrating the integration of **Firebase** with **Flutter**. The final goal is to create something like the [Flutter Gallery](https://github.com/flutter/gallery) app, but for Firebase.
+
+Also, the recently changes introduced in **Flutter 2** create some confusion, mostly with the beginners, as many other repositories are not yet updated to the latest version. Even [FlutterFire](https://firebase.flutter.dev/) plugins got a lot of improvements and most of them support null safety now.
+
+> **NOTE:** This entire repo uses the latest **Flutter 2.0 stable** release, with **null safety** enabled, for creating the sample apps.
+
+If you like the content of this repository, please don't forget to :star: this.
+
+> :construction: **WIP** to add all types of Firebase samples in this repo.
+
+Currently the repo contains:
+
+* [Firebase Authentication (email & password)](https://github.com/sbis04/flutterfire-samples/tree/email-password)
+* [Firebase Authentication (using Google Sign-In)](https://github.com/sbis04/flutterfire-samples/tree/google-sign-in)
+
+The `master` branch is currently having the implementation for Firebase Authentication (using Google Sign-In), but it will soon be updated.
+
+## Contents
+
+The aim of this repo is to include examples for:
+
+- [ ] **Authentication**
+  - [ ] Email & password registration & login
+  - [ ] Phone OTP verification
+  - [ ] Login using various providers (Google, GitHub, Apple, etc.)
+
+- [ ] **Database**
+  - [ ] CRUD operations on Firebase Cloud Firestore
+  - [ ] Storing & retrieving images/videos/files to/fro Cloud Storage
+  - [ ] Using Realtime Database
+
+- [ ] **Backend Actions**
+  - [ ] Cloud Functions
+  - [ ] User Presence tracking
+  - [ ] Push notifications using Firebase Cloud Messaging (FCM)
+
+- [ ] **Machine Learning**
+  - [ ] Test recognition
+  - [ ] Face detection
+  - [ ] Image recognition (more might be added here)
+
+- [ ] **Other utilities**
+  - [ ] Analytics/Crashlytics
+  - [ ] Remote config
+  - [ ] A/B testing
+  - [ ] In-app messaging
+  - [ ] Dynamic Linking
+  - [ ] Firebase extensions (BETA)
+
+---
+
+## Current `master` branch description
+
 This is a sample app demonstrating **Firebase Authentication** in Flutter using email & password. Also shows how to send *email verification* and set up *auto login*.
 
 > **NOTE:** This sample app uses the latest **Flutter 2.0 stable release**, with *null safety* enabled. Make sure you are using Flutter 2 in order to prevent any build errors. Tested on Android, iOS & Web.
