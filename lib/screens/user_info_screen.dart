@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutterfire_samples/res/custom_colors.dart';
+import 'package:flutterfire_samples/screens/secret_vault_screen.dart';
 import 'package:flutterfire_samples/screens/sign_in_screen.dart';
 import 'package:flutterfire_samples/utils/authentication.dart';
 import 'package:flutterfire_samples/widgets/app_bar_title.dart';
@@ -121,6 +122,36 @@ class _UserInfoScreenState extends State<UserInfoScreen> {
                     color: CustomColors.firebaseGrey.withOpacity(0.8),
                     fontSize: 14,
                     letterSpacing: 0.2),
+              ),
+              SizedBox(height: 16.0),
+              ElevatedButton(
+                style: ButtonStyle(
+                  backgroundColor: MaterialStateProperty.all(
+                    CustomColors.firebaseOrange,
+                  ),
+                  shape: MaterialStateProperty.all(
+                    RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                  ),
+                ),
+                onPressed: () => Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (context) => SecretVaultScreen(),
+                  ),
+                ),
+                child: Padding(
+                  padding: EdgeInsets.only(top: 10.0, bottom: 10.0),
+                  child: Text(
+                    'Access secret vault',
+                    style: TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white,
+                      letterSpacing: 2,
+                    ),
+                  ),
+                ),
               ),
               SizedBox(height: 16.0),
               _isSigningOut
