@@ -135,11 +135,24 @@ class _UserInfoScreenState extends State<UserInfoScreen> {
                     ),
                   ),
                 ),
-                onPressed: () => Navigator.of(context).push(
-                  MaterialPageRoute(
-                    builder: (context) => SecretVaultScreen(),
-                  ),
-                ),
+                onPressed: () async {
+                  bool isAuthenticated =
+                      await Authentication.authenticateWithBiometrics();
+
+                  if (isAuthenticated) {
+                    Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (context) => SecretVaultScreen(),
+                      ),
+                    );
+                  } else {
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      Authentication.customSnackBar(
+                        content: 'Error authenticating using Biometrics.',
+                      ),
+                    );
+                  }
+                },
                 child: Padding(
                   padding: EdgeInsets.only(top: 10.0, bottom: 10.0),
                   child: Text(
