@@ -27,7 +27,7 @@
 	<key>UIMainStoryboardFile</key>
 	<string>Main</string>
 	<key>NSFaceIDUsageDescription</key>
-	<string>Boimetric authentication for accessing secrets</string>
+	<string>Biometric authentication for accessing secrets</string>
 	<key>CFBundleURLTypes</key>
 	<array>
 		<dict>
