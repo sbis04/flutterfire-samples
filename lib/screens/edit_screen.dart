@@ -42,11 +42,16 @@ class _EditScreenState extends State<EditScreen> {
           actions: [
             _isDeleting
                 ? Padding(
-                    padding: const EdgeInsets.all(16.0),
+                    padding: const EdgeInsets.only(
+                      top: 10.0,
+                      bottom: 10.0,
+                      right: 16.0,
+                    ),
                     child: CircularProgressIndicator(
                       valueColor: AlwaysStoppedAnimation<Color>(
-                        CustomColors.firebaseOrange,
+                        Colors.redAccent,
                       ),
+                      strokeWidth: 3,
                     ),
                   )
                 : IconButton(
