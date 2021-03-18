@@ -1,33 +1,18 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutterfire_samples/res/custom_colors.dart';
-import 'package:flutterfire_samples/screens/user_info_screen.dart';
-import 'package:flutterfire_samples/widgets/sign_in_form.dart';
+import 'package:flutterfire_samples/widgets/login_form.dart';
 
-class SignInScreen extends StatefulWidget {
+class LoginScreen extends StatefulWidget {
   @override
-  _SignInScreenState createState() => _SignInScreenState();
+  _LoginScreenState createState() => _LoginScreenState();
 }
 
-class _SignInScreenState extends State<SignInScreen> {
-  final FocusNode _emailFocusNode = FocusNode();
-  final FocusNode _passwordFocusNode = FocusNode();
+class _LoginScreenState extends State<LoginScreen> {
+  final FocusNode _uidFocusNode = FocusNode();
 
   Future<FirebaseApp> _initializeFirebase() async {
     FirebaseApp firebaseApp = await Firebase.initializeApp();
-
-    User? user = FirebaseAuth.instance.currentUser;
-
-    if (user != null) {
-      Navigator.of(context).pushReplacement(
-        MaterialPageRoute(
-          builder: (context) => UserInfoScreen(
-            user: user,
-          ),
-        ),
-      );
-    }
 
     return firebaseApp;
   }
@@ -35,10 +20,7 @@ class _SignInScreenState extends State<SignInScreen> {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {
-        _emailFocusNode.unfocus();
-        _passwordFocusNode.unfocus();
-      },
+      onTap: () => _uidFocusNode.unfocus(),
       child: Scaffold(
         backgroundColor: CustomColors.firebaseNavy,
         body: SafeArea(
@@ -73,7 +55,7 @@ class _SignInScreenState extends State<SignInScreen> {
                         ),
                       ),
                       Text(
-                        'Authentication',
+                        'CRUD',
                         style: TextStyle(
                           color: CustomColors.firebaseOrange,
                           fontSize: 40,
@@ -89,10 +71,7 @@ class _SignInScreenState extends State<SignInScreen> {
                       return Text('Error initializing Firebase');
                     } else if (snapshot.connectionState ==
                         ConnectionState.done) {
-                      return SignInForm(
-                        emailFocusNode: _emailFocusNode,
-                        passwordFocusNode: _passwordFocusNode,
-                      );
+                      return LoginForm(focusNode: _uidFocusNode);
                     }
                     return CircularProgressIndicator(
                       valueColor: AlwaysStoppedAnimation<Color>(
@@ -100,11 +79,7 @@ class _SignInScreenState extends State<SignInScreen> {
                       ),
                     );
                   },
-                )
-                // SignInForm(
-                //   emailFocusNode: _emailFocusNode,
-                //   passwordFocusNode: _passwordFocusNode,
-                // ),
+                ),
               ],
             ),
           ),
