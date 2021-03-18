@@ -21,7 +21,7 @@ class AppBarTitle extends StatelessWidget {
           ),
         ),
         Text(
-          ' Authentication',
+          ' CRUD',
           style: TextStyle(
             color: CustomColors.firebaseOrange,
             fontSize: 18,
