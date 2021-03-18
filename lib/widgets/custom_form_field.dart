@@ -13,6 +13,8 @@ class CustomFormField extends StatelessWidget {
     required Function(String value) validator,
     this.isObscure = false,
     this.isCapitalized = false,
+    this.maxLines = 1,
+    this.isLabelEnabled = true,
   })  : _emailController = controller,
         _emailFocusNode = focusNode,
         _keyboardtype = keyboardType,
@@ -30,11 +32,14 @@ class CustomFormField extends StatelessWidget {
   final String _hint;
   final bool isObscure;
   final bool isCapitalized;
+  final int maxLines;
+  final bool isLabelEnabled;
   final Function(String) _validator;
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      maxLines: maxLines,
       controller: _emailController,
       focusNode: _emailFocusNode,
       keyboardType: _keyboardtype,
@@ -45,7 +50,7 @@ class CustomFormField extends StatelessWidget {
       cursorColor: CustomColors.firebaseYellow,
       validator: (value) => _validator(value!),
       decoration: InputDecoration(
-        labelText: _label,
+        labelText: isLabelEnabled ? _label : null,
         labelStyle: TextStyle(color: CustomColors.firebaseYellow),
         hintText: _hint,
         hintStyle: TextStyle(
