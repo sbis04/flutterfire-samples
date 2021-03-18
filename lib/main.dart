@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutterfire_samples/screens/sign_in_screen.dart';
+import 'package:flutterfire_samples/screens/login_screen.dart';
 
 void main() {
   runApp(MyApp());
@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.indigo,
         brightness: Brightness.dark,
       ),
-      home: SignInScreen(),
+      home: LoginScreen(),
     );
   }
 }
