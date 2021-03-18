@@ -6,8 +6,10 @@ final CollectionReference _mainCollection = _firestore.collection('notes');
 class Database {
   static String? userUid;
 
-  static Future<void> addItem(
-      {required String title, required String description}) async {
+  static Future<void> addItem({
+    required String title,
+    required String description,
+  }) async {
     DocumentReference documentReferencer =
         _mainCollection.doc(userUid).collection('items').doc();
 
@@ -22,10 +24,13 @@ class Database {
         .catchError((e) => print(e));
   }
 
-  static Future<void> updateItem(
-      {required String title, required String description}) async {
+  static Future<void> updateItem({
+    required String title,
+    required String description,
+    required String docId,
+  }) async {
     DocumentReference documentReferencer =
-        _mainCollection.doc(userUid).collection('items').doc();
+        _mainCollection.doc(userUid).collection('items').doc(docId);
 
     Map<String, dynamic> data = <String, dynamic>{
       "title": title,
@@ -45,9 +50,11 @@ class Database {
     return notesItemCollection.snapshots();
   }
 
-  static Future<void> deleteItem() async {
+  static Future<void> deleteItem({
+    required String docId,
+  }) async {
     DocumentReference documentReferencer =
-        _mainCollection.doc(userUid).collection('items').doc();
+        _mainCollection.doc(userUid).collection('items').doc(docId);
 
     await documentReferencer
         .delete()
