@@ -14,7 +14,7 @@ Currently the repo contains:
 
 * [Firebase Authentication (email & password)](https://github.com/sbis04/flutterfire-samples/tree/email-password)
 * [Firebase Authentication (using Google Sign-In)](https://github.com/sbis04/flutterfire-samples/tree/google-sign-in)
-* [Cloud Firestore database (CRUD operations)](https://github.com/sbis04/flutterfire-samples/tree/firestore-crud)
+* [Cloud Firestore database (CRUD operations)](https://github.com/sbis04/flutterfire-samples/tree/crud-firestore)
 
 The `master` branch is currently having the implementation for Firebase Authentication (using Google Sign-In), but it will soon be updated.
 
