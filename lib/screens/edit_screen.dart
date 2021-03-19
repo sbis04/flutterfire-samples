@@ -72,6 +72,8 @@ class _EditScreenState extends State<EditScreen> {
                       setState(() {
                         _isDeleting = false;
                       });
+
+                      Navigator.of(context).pop();
                     },
                   ),
           ],
