@@ -4,12 +4,12 @@ import 'package:flutterfire_samples/screens/add_screen.dart';
 import 'package:flutterfire_samples/widgets/app_bar_title.dart';
 import 'package:flutterfire_samples/widgets/item_list.dart';
 
-class DashbaordScreen extends StatefulWidget {
+class DashboardScreen extends StatefulWidget {
   @override
-  _DashbaordScreenState createState() => _DashbaordScreenState();
+  _DashboardScreenState createState() => _DashboardScreenState();
 }
 
-class _DashbaordScreenState extends State<DashbaordScreen> {
+class _DashboardScreenState extends State<DashboardScreen> {
   final FocusNode _nameFocusNode = FocusNode();
   final FocusNode _emailFocusNode = FocusNode();
   final FocusNode _passwordFocusNode = FocusNode();
