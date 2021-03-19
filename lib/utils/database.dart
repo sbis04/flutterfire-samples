@@ -20,7 +20,7 @@ class Database {
 
     await documentReferencer
         .set(data)
-        .whenComplete(() => print("Notes item added to the database"))
+        .whenComplete(() => print("Note item added to the database"))
         .catchError((e) => print(e));
   }
 
@@ -39,7 +39,7 @@ class Database {
 
     await documentReferencer
         .update(data)
-        .whenComplete(() => print("Notes item updated in the database"))
+        .whenComplete(() => print("Note item updated in the database"))
         .catchError((e) => print(e));
   }
 
@@ -58,7 +58,7 @@ class Database {
 
     await documentReferencer
         .delete()
-        .whenComplete(() => print('Notes item deleted from the database'))
+        .whenComplete(() => print('Note item deleted from the database'))
         .catchError((e) => print(e));
   }
 
