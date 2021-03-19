@@ -1,21 +1,29 @@
 # FlutterFire Samples
 
-This is a sample app demonstrating **Firebase Authentication** in Flutter using email & password. Also shows how to send *email verification* and set up *auto login*.
+This is a sample app demonstrating how to perform CRUD operations on **Firebase Cloud Firestore** using Flutter. We have build a simple note management app for the demonstration.
 
 > **NOTE:** This sample app uses the latest **Flutter 2.0 stable release**, with *null safety* enabled. Make sure you are using Flutter 2 in order to prevent any build errors. Tested on Android, iOS & Web.
 
-![](https://github.com/sbis04/flutterfire-samples/raw/master/screenshots/flutterfire_authentication_cover.png)
+![](https://github.com/sbis04/flutterfire-samples/raw/crud-firestore/screenshots/flutter_fire_crud.png)
 
 App in action :rocket: :
 
-![](https://github.com/sbis04/flutterfire-samples/raw/master/screenshots/flutterfire_auth.gif)
+![](https://github.com/sbis04/flutterfire-samples/raw/crud-firestore/screenshots/firebase_crud_demo.gif)
+
+## Firestore structure
+
+The Cloud Firestore database structure used in the sample app is as follows:
+
+![database_1](https://github.com/sbis04/flutterfire-samples/raw/crud-firestore/screenshots/database_1.png)
+
+![database_2](https://github.com/sbis04/flutterfire-samples/raw/crud-firestore/screenshots/database_2.png)
 
 ## Plugins
 
 For this project you have to add two plugins:
 
 - [firebase_core](https://pub.dev/packages/firebase_core): Required for initializing Firebase and using any other Firebase plugins.
-- [firebase_auth](https://pub.dev/packages/firebase_auth): For using Firebase Authentication service in Flutter.
+- [cloud_firestore](https://pub.dev/packages/cloud_firestore): Required for interacting with the Firestore database.
 
 The latest version of both these plugins support *null safety*.
 
@@ -29,11 +37,13 @@ If you want to try out the this sample app, first you have to create and configu
   https://github.com/sbis04/flutterfire-samples.git
   ```
 
-* Create a new Firebase project from the [console](https://console.firebase.google.com/).
+* Create a new **Firebase project** from the [console](https://console.firebase.google.com/).
 
 * Configure the Firebase for each platform.
 
-* Run the app using the command:
+* Enable **Firestore** from the Firebase dashboard.
+
+* Run the app using command (make sure you are on the correct channel):
   
   ```bash
   cd flutterfire-samples
