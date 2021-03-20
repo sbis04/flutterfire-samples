@@ -61,21 +61,4 @@ class Database {
         .whenComplete(() => print('Note item deleted from the database'))
         .catchError((e) => print(e));
   }
-
-  //   static SnackBar customSnackBar({required String content}) {
-  //   return SnackBar(
-  //     backgroundColor: Colors.black,
-  //     content: Text(
-  //       content,
-  //       style: TextStyle(color: Colors.redAccent, letterSpacing: 0.5),
-  //     ),
-  //   );
-  // }
-
-  // ScaffoldMessenger.of(context).showSnackBar(
-  //         Authentication.customSnackBar(
-  //           content: 'Wrong password provided.',
-  //         ),
-  //       );
-
 }
