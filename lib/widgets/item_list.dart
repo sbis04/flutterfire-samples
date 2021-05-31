@@ -7,7 +7,7 @@ import 'package:flutterfire_samples/utils/database.dart';
 class ItemList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return StreamBuilder<QuerySnapshot>(
+    return StreamBuilder<QuerySnapshot<Map<String, dynamic>>>(
       stream: Database.readItems(),
       builder: (context, snapshot) {
         if (snapshot.hasError) {
@@ -17,7 +17,7 @@ class ItemList extends StatelessWidget {
             separatorBuilder: (context, index) => SizedBox(height: 16.0),
             itemCount: snapshot.data!.docs.length,
             itemBuilder: (context, index) {
-              var noteInfo = snapshot.data!.docs[index].data()!;
+              var noteInfo = snapshot.data!.docs[index].data();
               String docID = snapshot.data!.docs[index].id;
               String title = noteInfo['title'];
               String description = noteInfo['description'];
