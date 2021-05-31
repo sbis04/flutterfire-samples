@@ -8,6 +8,7 @@ if (localPropertiesFile.exists()) {
 
 def flutterRoot = localProperties.getProperty('flutter.sdk')
 if (flutterRoot == null) {
+	// in case of problems with GradleException being of unknown type, replace it with FileNotFoundException
     throw new GradleException("Flutter SDK not found. Define location with flutter.sdk in the local.properties file.")
 }
 
@@ -36,7 +37,9 @@ android {
     defaultConfig {
         // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
         applicationId "com.souvikbiswas.flutterfire_samples"
-        minSdkVersion 16
+
+        // using lower minSdkVersion than 21 would require additional dependency for multidex
+        minSdkVersion 21
         targetSdkVersion 30
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName

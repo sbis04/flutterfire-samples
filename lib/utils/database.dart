@@ -43,8 +43,8 @@ class Database {
         .catchError((e) => print(e));
   }
 
-  static Stream<QuerySnapshot> readItems() {
-    CollectionReference notesItemCollection =
+  static Stream<QuerySnapshot<Map<String, dynamic>>> readItems() {
+    CollectionReference<Map<String, dynamic>> notesItemCollection =
         _mainCollection.doc(userUid).collection('items');
 
     return notesItemCollection.snapshots();
