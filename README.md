@@ -14,6 +14,7 @@ Currently the repo contains:
 
 * [Firebase Authentication (email & password)](https://github.com/sbis04/flutterfire-samples/tree/email-password)
 * [Firebase Authentication (using Google Sign-In)](https://github.com/sbis04/flutterfire-samples/tree/google-sign-in)
+* [Cloud Firestore database (CRUD operations)](https://github.com/sbis04/flutterfire-samples/tree/crud-firestore)
 
 The `master` branch is currently having the implementation for Firebase Authentication (using Google Sign-In), but it will soon be updated.
 
@@ -28,7 +29,7 @@ The aim of this repo is to include examples for:
 
 
 - [ ] **Database**
-  - [ ] CRUD operations on Firebase Cloud Firestore
+  - [x] CRUD operations on Firebase Cloud Firestore
   - [ ] Storing & retrieving images/videos/files to/fro Cloud Storage
   - [ ] Using Realtime Database
 
