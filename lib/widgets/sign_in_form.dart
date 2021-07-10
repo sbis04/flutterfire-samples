@@ -75,7 +75,7 @@ class _SignInFormState extends State<SignInForm> {
                   padding: const EdgeInsets.all(16.0),
                   child: CircularProgressIndicator(
                     valueColor: AlwaysStoppedAnimation<Color>(
-                      CustomColors.firebaseOrange,
+                      Palette.firebaseOrange,
                     ),
                   ),
                 )
@@ -86,7 +86,7 @@ class _SignInFormState extends State<SignInForm> {
                     child: ElevatedButton(
                       style: ButtonStyle(
                         backgroundColor: MaterialStateProperty.all(
-                          CustomColors.firebaseOrange,
+                          Palette.firebaseOrange,
                         ),
                         shape: MaterialStateProperty.all(
                           RoundedRectangleBorder(
@@ -132,7 +132,7 @@ class _SignInFormState extends State<SignInForm> {
                           style: TextStyle(
                             fontSize: 24,
                             fontWeight: FontWeight.bold,
-                            color: CustomColors.firebaseGrey,
+                            color: Palette.firebaseGrey,
                             letterSpacing: 2,
                           ),
                         ),
@@ -152,7 +152,7 @@ class _SignInFormState extends State<SignInForm> {
             child: Text(
               'Don\'t have an account? Sign up',
               style: TextStyle(
-                color: CustomColors.firebaseGrey,
+                color: Palette.firebaseGrey,
                 letterSpacing: 0.5,
               ),
             ),

@@ -40,7 +40,7 @@ class _SignInScreenState extends State<SignInScreen> {
         _passwordFocusNode.unfocus();
       },
       child: Scaffold(
-        backgroundColor: CustomColors.firebaseNavy,
+        backgroundColor: Palette.firebaseNavy,
         body: SafeArea(
           child: Padding(
             padding: const EdgeInsets.only(
@@ -68,14 +68,14 @@ class _SignInScreenState extends State<SignInScreen> {
                       Text(
                         'FlutterFire',
                         style: TextStyle(
-                          color: CustomColors.firebaseYellow,
+                          color: Palette.firebaseYellow,
                           fontSize: 40,
                         ),
                       ),
                       Text(
                         'Authentication',
                         style: TextStyle(
-                          color: CustomColors.firebaseOrange,
+                          color: Palette.firebaseOrange,
                           fontSize: 40,
                         ),
                       ),
@@ -96,7 +96,7 @@ class _SignInScreenState extends State<SignInScreen> {
                     }
                     return CircularProgressIndicator(
                       valueColor: AlwaysStoppedAnimation<Color>(
-                        CustomColors.firebaseOrange,
+                        Palette.firebaseOrange,
                       ),
                     );
                   },

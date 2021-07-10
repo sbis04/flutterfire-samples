@@ -53,10 +53,10 @@ class _UserInfoScreenState extends State<UserInfoScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: CustomColors.firebaseNavy,
+      backgroundColor: Palette.firebaseNavy,
       appBar: AppBar(
         elevation: 0,
-        backgroundColor: CustomColors.firebaseNavy,
+        backgroundColor: Palette.firebaseNavy,
         title: AppBarTitle(),
       ),
       body: SafeArea(
@@ -72,13 +72,13 @@ class _UserInfoScreenState extends State<UserInfoScreen> {
               Row(),
               ClipOval(
                 child: Material(
-                  color: CustomColors.firebaseGrey.withOpacity(0.3),
+                  color: Palette.firebaseGrey.withOpacity(0.3),
                   child: Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: Icon(
                       Icons.person,
                       size: 42,
-                      color: CustomColors.firebaseGrey,
+                      color: Palette.firebaseGrey,
                     ),
                   ),
                 ),
@@ -87,7 +87,7 @@ class _UserInfoScreenState extends State<UserInfoScreen> {
               Text(
                 'Hello',
                 style: TextStyle(
-                  color: CustomColors.firebaseGrey,
+                  color: Palette.firebaseGrey,
                   fontSize: 26,
                 ),
               ),
@@ -95,7 +95,7 @@ class _UserInfoScreenState extends State<UserInfoScreen> {
               Text(
                 widget._user.displayName!,
                 style: TextStyle(
-                  color: CustomColors.firebaseYellow,
+                  color: Palette.firebaseYellow,
                   fontSize: 26,
                 ),
               ),
@@ -164,13 +164,13 @@ class _UserInfoScreenState extends State<UserInfoScreen> {
                     _verificationEmailBeingSent
                         ? CircularProgressIndicator(
                             valueColor: AlwaysStoppedAnimation<Color>(
-                              CustomColors.firebaseGrey,
+                              Palette.firebaseGrey,
                             ),
                           )
                         : ElevatedButton(
                             style: ButtonStyle(
                               backgroundColor: MaterialStateProperty.all(
-                                CustomColors.firebaseGrey,
+                                Palette.firebaseGrey,
                               ),
                               shape: MaterialStateProperty.all(
                                 RoundedRectangleBorder(
@@ -194,7 +194,7 @@ class _UserInfoScreenState extends State<UserInfoScreen> {
                                 style: TextStyle(
                                   fontSize: 20,
                                   fontWeight: FontWeight.bold,
-                                  color: CustomColors.firebaseNavy,
+                                  color: Palette.firebaseNavy,
                                   letterSpacing: 2,
                                 ),
                               ),
@@ -221,7 +221,7 @@ class _UserInfoScreenState extends State<UserInfoScreen> {
               Text(
                 'You are now signed in using Firebase Authentication. To sign out of your account click the "Sign Out" button below.',
                 style: TextStyle(
-                    color: CustomColors.firebaseGrey.withOpacity(0.8),
+                    color: Palette.firebaseGrey.withOpacity(0.8),
                     fontSize: 14,
                     letterSpacing: 0.2),
               ),

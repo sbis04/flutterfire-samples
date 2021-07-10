@@ -22,10 +22,10 @@ class _RegisterScreenState extends State<RegisterScreen> {
         _passwordFocusNode.unfocus();
       },
       child: Scaffold(
-        backgroundColor: CustomColors.firebaseNavy,
+        backgroundColor: Palette.firebaseNavy,
         appBar: AppBar(
           elevation: 0,
-          backgroundColor: CustomColors.firebaseNavy,
+          backgroundColor: Palette.firebaseNavy,
           title: AppBarTitle(),
         ),
         body: SafeArea(

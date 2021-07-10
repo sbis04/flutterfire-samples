@@ -111,7 +111,7 @@ class _RegisterFormState extends State<RegisterForm> {
                   padding: const EdgeInsets.all(16.0),
                   child: CircularProgressIndicator(
                     valueColor: AlwaysStoppedAnimation<Color>(
-                      CustomColors.firebaseOrange,
+                      Palette.firebaseOrange,
                     ),
                   ),
                 )
@@ -122,7 +122,7 @@ class _RegisterFormState extends State<RegisterForm> {
                     child: ElevatedButton(
                       style: ButtonStyle(
                         backgroundColor: MaterialStateProperty.all(
-                          CustomColors.firebaseOrange,
+                          Palette.firebaseOrange,
                         ),
                         shape: MaterialStateProperty.all(
                           RoundedRectangleBorder(
@@ -169,7 +169,7 @@ class _RegisterFormState extends State<RegisterForm> {
                           style: TextStyle(
                             fontSize: 24,
                             fontWeight: FontWeight.bold,
-                            color: CustomColors.firebaseGrey,
+                            color: Palette.firebaseGrey,
                             letterSpacing: 2,
                           ),
                         ),
@@ -187,7 +187,7 @@ class _RegisterFormState extends State<RegisterForm> {
             child: Text(
               'Already have an account? Sign in',
               style: TextStyle(
-                color: CustomColors.firebaseGrey,
+                color: Palette.firebaseGrey,
                 letterSpacing: 0.5,
               ),
             ),
