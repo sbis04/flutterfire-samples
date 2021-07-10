@@ -46,3 +46,6 @@ app.*.map.json
 /android/app/release
 android/app/google-services.json
 web/index.html
+.fvm/flutter_sdk
+.fvm/fvm_config.json
+.vscode/settings.json
