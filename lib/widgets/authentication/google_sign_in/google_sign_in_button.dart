@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutterfire_samples/res/fire_assets.dart';
 import 'package:flutterfire_samples/screens/authentication/google_sign_in/g_user_info_screen.dart';
 import 'package:flutterfire_samples/utils/g_authentication.dart';
 
@@ -56,7 +57,7 @@ class _GoogleSignInButtonState extends State<GoogleSignInButton> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
                     Image(
-                      image: AssetImage("assets/google_logo.png"),
+                      image: AssetImage(FireAssets.googleLogo),
                       height: 35.0,
                     ),
                     Padding(

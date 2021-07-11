@@ -6,4 +6,5 @@ class FireAssets {
   static const String fireBackend = '$rootPath/backend.png';
   static const String fireMachineLearning = '$rootPath/machine-learning.png';
   static const String fireOtherUtilities = '$rootPath/other-utilities.png';
+  static const String googleLogo = '$rootPath/google_logo.png';
 }
