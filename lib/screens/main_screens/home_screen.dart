@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutterfire_samples/res/custom_colors.dart';
 import 'package:flutterfire_samples/res/fire_assets.dart';
-import 'package:flutterfire_samples/screens/authentication/email_password/ep_sign_in_screen.dart';
 import 'package:flutterfire_samples/screens/authentication/google_sign_in/g_sign_in_screen.dart';
+import 'package:flutterfire_samples/screens/database/crud/db_login_screen.dart';
 import 'package:flutterfire_samples/widgets/app_bar_title.dart';
 import 'package:flutterfire_samples/widgets/footer.dart';
 
@@ -27,7 +27,7 @@ class HomeScreen extends StatelessWidget {
 
   final List<Widget?> _listFeatureScreens = [
     GSignInScreen(),
-    null,
+    DbLoginScreen(),
     null,
     null,
     null,
