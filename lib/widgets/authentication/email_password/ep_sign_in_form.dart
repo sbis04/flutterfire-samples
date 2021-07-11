@@ -6,7 +6,7 @@ import 'package:flutterfire_samples/screens/authentication/email_password/ep_use
 import 'package:flutterfire_samples/utils/ep_authentication.dart';
 import 'package:flutterfire_samples/utils/ep_validator.dart';
 
-import 'ep_custom_form_field.dart';
+import '../../custom_form_field.dart';
 
 class EPSignInForm extends StatefulWidget {
   final FocusNode emailFocusNode;
@@ -43,7 +43,7 @@ class _EPSignInFormState extends State<EPSignInForm> {
             ),
             child: Column(
               children: [
-                EPCustomFormField(
+                CustomFormField(
                   controller: _emailController,
                   focusNode: widget.emailFocusNode,
                   keyboardType: TextInputType.emailAddress,
@@ -55,7 +55,7 @@ class _EPSignInFormState extends State<EPSignInForm> {
                   hint: 'Enter your email',
                 ),
                 SizedBox(height: 16.0),
-                EPCustomFormField(
+                CustomFormField(
                   controller: _passwordController,
                   focusNode: widget.passwordFocusNode,
                   keyboardType: TextInputType.text,
