@@ -30,7 +30,9 @@ class HomeScreen extends StatelessWidget {
       appBar: AppBar(
         elevation: 0,
         backgroundColor: Palette.firebaseNavy,
-        title: AppBarTitle(),
+        title: AppBarTitle(
+          sectionName: 'Samples',
+        ),
       ),
       body: SafeArea(
         child: Stack(

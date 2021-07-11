@@ -26,7 +26,9 @@ class _RegisterScreenState extends State<RegisterScreen> {
         appBar: AppBar(
           elevation: 0,
           backgroundColor: Palette.firebaseNavy,
-          title: AppBarTitle(),
+          title: AppBarTitle(
+            sectionName: 'Authentication',
+          ),
         ),
         body: SafeArea(
           child: Padding(
