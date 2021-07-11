@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutterfire_samples/screens/sign_in_screen.dart';
 
 import 'screens/main_screens/home_screen.dart';
 
