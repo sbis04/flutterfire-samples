@@ -1,7 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
-class Authentication {
+class EPAuthentication {
   static SnackBar customSnackBar({required String content}) {
     return SnackBar(
       backgroundColor: Colors.black,
@@ -30,14 +30,14 @@ class Authentication {
       if (e.code == 'user-not-found') {
         print('No user found for that email.');
         ScaffoldMessenger.of(context).showSnackBar(
-          Authentication.customSnackBar(
+          EPAuthentication.customSnackBar(
             content: 'No user found for that email. Please create an account.',
           ),
         );
       } else if (e.code == 'wrong-password') {
         print('Wrong password provided.');
         ScaffoldMessenger.of(context).showSnackBar(
-          Authentication.customSnackBar(
+          EPAuthentication.customSnackBar(
             content: 'Wrong password provided.',
           ),
         );
@@ -70,14 +70,14 @@ class Authentication {
       if (e.code == 'weak-password') {
         print('The password provided is too weak.');
         ScaffoldMessenger.of(context).showSnackBar(
-          Authentication.customSnackBar(
+          EPAuthentication.customSnackBar(
             content: 'The password provided is too weak.',
           ),
         );
       } else if (e.code == 'email-already-in-use') {
         print('The account already exists for that email.');
         ScaffoldMessenger.of(context).showSnackBar(
-          Authentication.customSnackBar(
+          EPAuthentication.customSnackBar(
             content: 'The account already exists for that email.',
           ),
         );
