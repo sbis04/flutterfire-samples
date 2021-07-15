@@ -8,7 +8,7 @@ Also, the recently changes introduced in **Flutter 2** create some confusion, mo
 
 If you like the content of this repository, please don't forget to :star: this.
 
-> :construction: **WIP** to add all types of Firebase samples in this repo. If you want to try out any sample checkout the following branches:
+> :construction: . :red_circle: . The `master` branch is currently **WIP** for adding all types of Firebase samples in this repo. If you want to try out any sample checkout the following branches:
 
 Currently the repo contains:
 
