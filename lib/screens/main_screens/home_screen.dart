@@ -36,7 +36,7 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Palette.firebaseNavy,
+      backgroundColor: Colors.black,
       appBar: AppBar(
         elevation: 0,
         backgroundColor: Palette.firebaseNavy,
@@ -47,60 +47,64 @@ class HomeScreen extends StatelessWidget {
       body: SafeArea(
         child: Stack(
           children: [
-            Padding(
-              padding: const EdgeInsets.only(
-                left: 16.0,
-                right: 16.0,
-                bottom: 100.0,
-              ),
-              child: ListView.separated(
-                physics: BouncingScrollPhysics(),
-                separatorBuilder: (context, index) => SizedBox(height: 8.0),
-                itemCount: _listFireItems.length,
-                itemBuilder: (context, index) => InkWell(
-                  borderRadius: BorderRadius.circular(16.0),
-                  onTap: _listFeatureScreens[index] != null
-                      ? () {
-                          Navigator.of(context).push(
-                            MaterialPageRoute(
-                              builder: (context) => _listFeatureScreens[index]!,
+            Container(
+              color: Palette.firebaseNavy,
+              child: Padding(
+                padding: const EdgeInsets.only(
+                  left: 16.0,
+                  right: 16.0,
+                  bottom: 100.0,
+                ),
+                child: ListView.separated(
+                  physics: BouncingScrollPhysics(),
+                  separatorBuilder: (context, index) => SizedBox(height: 8.0),
+                  itemCount: _listFireItems.length,
+                  itemBuilder: (context, index) => InkWell(
+                    borderRadius: BorderRadius.circular(16.0),
+                    onTap: _listFeatureScreens[index] != null
+                        ? () {
+                            Navigator.of(context).push(
+                              MaterialPageRoute(
+                                builder: (context) =>
+                                    _listFeatureScreens[index]!,
+                              ),
+                            );
+                          }
+                        : null,
+                    child: Card(
+                      color: Colors.black12,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(16.0),
+                      ),
+                      child: Row(
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.fromLTRB(
+                              24.0,
+                              16.0,
+                              16.0,
+                              16.0,
                             ),
-                          );
-                        }
-                      : null,
-                  child: Card(
-                    color: Colors.black12,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(16.0),
-                    ),
-                    child: Row(
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.fromLTRB(
-                            24.0,
-                            16.0,
-                            16.0,
-                            16.0,
-                          ),
-                          child: Image.asset(
-                            _listFireIcons[index],
-                            color: Palette.firebaseYellow.withOpacity(
-                              _listFeatureScreens[index] != null ? 1.0 : 0.5,
+                            child: Image.asset(
+                              _listFireIcons[index],
+                              color: Palette.firebaseYellow.withOpacity(
+                                _listFeatureScreens[index] != null ? 1.0 : 0.5,
+                              ),
+                              width: 40.0,
                             ),
-                            width: 40.0,
                           ),
-                        ),
-                        Text(
-                          _listFireItems[index],
-                          style: TextStyle(
-                            color: Colors.white.withOpacity(
-                              _listFeatureScreens[index] != null ? 1.0 : 0.5,
+                          Text(
+                            _listFireItems[index],
+                            style: TextStyle(
+                              color: Colors.white.withOpacity(
+                                _listFeatureScreens[index] != null ? 1.0 : 0.5,
+                              ),
+                              fontSize: 16.0,
+                              fontWeight: FontWeight.w600,
                             ),
-                            fontSize: 16.0,
-                            fontWeight: FontWeight.w600,
-                          ),
-                        )
-                      ],
+                          )
+                        ],
+                      ),
                     ),
                   ),
                 ),
