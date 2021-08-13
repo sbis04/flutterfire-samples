@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutterfire_samples/res/custom_colors.dart';
 import 'package:flutterfire_samples/utils/g_authentication.dart';
 import 'package:flutterfire_samples/widgets/authentication/google_sign_in/google_sign_in_button.dart';
+import 'package:flutterfire_samples/widgets/custom_back_button.dart';
 
 class GSignInScreen extends StatefulWidget {
   @override
@@ -76,19 +77,7 @@ class _GSignInScreenState extends State<GSignInScreen> {
                 ],
               ),
             ),
-            Align(
-              alignment: Alignment.topLeft,
-              child: Padding(
-                padding: const EdgeInsets.only(top: 8.0, left: 8.0),
-                child: Container(
-                  decoration: BoxDecoration(
-                    color: Colors.black26,
-                    borderRadius: BorderRadius.circular(30.0),
-                  ),
-                  child: BackButton(),
-                ),
-              ),
-            )
+            CustomBackButton(),
           ],
         ),
       ),

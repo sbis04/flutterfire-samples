@@ -1,6 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutterfire_samples/res/custom_colors.dart';
+import 'package:flutterfire_samples/widgets/custom_back_button.dart';
 import 'package:flutterfire_samples/widgets/database/crud/db_login_form.dart';
 
 class DbLoginScreen extends StatefulWidget {
@@ -85,19 +86,7 @@ class _DbLoginScreenState extends State<DbLoginScreen> {
                   ],
                 ),
               ),
-              Align(
-                alignment: Alignment.topLeft,
-                child: Padding(
-                  padding: const EdgeInsets.only(top: 8.0, left: 8.0),
-                  child: Container(
-                    decoration: BoxDecoration(
-                      color: Colors.black26,
-                      borderRadius: BorderRadius.circular(30.0),
-                    ),
-                    child: BackButton(),
-                  ),
-                ),
-              )
+              CustomBackButton(),
             ],
           ),
         ),
