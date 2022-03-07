@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
@@ -12,7 +14,7 @@ class GAuthentication {
       backgroundColor: Colors.black,
       content: Text(
         content,
-        style: TextStyle(color: Colors.redAccent, letterSpacing: 0.5),
+        style: const TextStyle(color: Colors.redAccent, letterSpacing: 0.5),
       ),
     );
   }
@@ -52,7 +54,7 @@ class GAuthentication {
 
         user = userCredential.user;
       } catch (e) {
-        print(e);
+        log(e.toString());
       }
     } else {
       final GoogleSignIn googleSignIn = GoogleSignIn();
