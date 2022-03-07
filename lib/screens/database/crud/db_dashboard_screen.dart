@@ -6,6 +6,8 @@ import 'package:flutterfire_samples/widgets/database/crud/db_item_list.dart';
 import 'db_add_screen.dart';
 
 class DbDashboardScreen extends StatefulWidget {
+  const DbDashboardScreen({Key? key}) : super(key: key);
+
   @override
   _DbDashboardScreenState createState() => _DbDashboardScreenState();
 }
@@ -22,7 +24,7 @@ class _DbDashboardScreenState extends State<DbDashboardScreen> {
       appBar: AppBar(
         elevation: 0,
         backgroundColor: Palette.firebaseNavy,
-        title: AppBarTitle(
+        title: const AppBarTitle(
           sectionName: 'CRUD',
         ),
       ),
@@ -35,7 +37,7 @@ class _DbDashboardScreenState extends State<DbDashboardScreen> {
           );
         },
         backgroundColor: Palette.firebaseOrange,
-        child: Icon(
+        child: const Icon(
           Icons.add,
           color: Colors.white,
           size: 32,

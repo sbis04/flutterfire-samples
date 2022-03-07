@@ -1,12 +1,15 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutterfire_samples/firebase_options.dart';
 import 'package:flutterfire_samples/res/custom_colors.dart';
 import 'package:flutterfire_samples/widgets/authentication/email_password/ep_sign_in_form.dart';
 
 import 'ep_user_info_screen.dart';
 
 class EPSignInScreen extends StatefulWidget {
+  const EPSignInScreen({Key? key}) : super(key: key);
+
   @override
   _EPSignInScreenState createState() => _EPSignInScreenState();
 }
@@ -16,7 +19,9 @@ class _EPSignInScreenState extends State<EPSignInScreen> {
   final FocusNode _passwordFocusNode = FocusNode();
 
   Future<FirebaseApp> _initializeFirebase() async {
-    FirebaseApp firebaseApp = await Firebase.initializeApp();
+    FirebaseApp firebaseApp = await Firebase.initializeApp(
+      options: DefaultFirebaseOptions.currentPlatform,
+    );
 
     User? user = FirebaseAuth.instance.currentUser;
 
@@ -67,7 +72,7 @@ class _EPSignInScreenState extends State<EPSignInScreen> {
                               height: 160,
                             ),
                           ),
-                          SizedBox(height: 20),
+                          const SizedBox(height: 20),
                           Text(
                             'FlutterFire',
                             style: TextStyle(
@@ -89,7 +94,7 @@ class _EPSignInScreenState extends State<EPSignInScreen> {
                       future: _initializeFirebase(),
                       builder: (context, snapshot) {
                         if (snapshot.hasError) {
-                          return Text('Error initializing Firebase');
+                          return const Text('Error initializing Firebase');
                         } else if (snapshot.connectionState ==
                             ConnectionState.done) {
                           return EPSignInForm(
@@ -120,7 +125,7 @@ class _EPSignInScreenState extends State<EPSignInScreen> {
                       color: Colors.black26,
                       borderRadius: BorderRadius.circular(30.0),
                     ),
-                    child: BackButton(),
+                    child: const BackButton(),
                   ),
                 ),
               )

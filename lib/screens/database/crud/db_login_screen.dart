@@ -1,5 +1,6 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutterfire_samples/firebase_options.dart';
 import 'package:flutterfire_samples/res/custom_colors.dart';
 import 'package:flutterfire_samples/widgets/custom_back_button.dart';
 import 'package:flutterfire_samples/widgets/database/crud/db_login_form.dart';
@@ -13,7 +14,9 @@ class _DbLoginScreenState extends State<DbLoginScreen> {
   final FocusNode _uidFocusNode = FocusNode();
 
   Future<FirebaseApp> _initializeFirebase() async {
-    FirebaseApp firebaseApp = await Firebase.initializeApp();
+    FirebaseApp firebaseApp = await Firebase.initializeApp(
+       options: DefaultFirebaseOptions.currentPlatform,
+    );
 
     return firebaseApp;
   }

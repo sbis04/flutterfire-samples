@@ -20,7 +20,7 @@ class Footer extends StatelessWidget {
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   RichText(
-                    text: TextSpan(
+                    text: const TextSpan(
                       text: 'Creator: ',
                       style: TextStyle(
                         fontFamily: 'OpenSans',
@@ -38,12 +38,12 @@ class Footer extends StatelessWidget {
                       ],
                     ),
                   ),
-                  SizedBox(height: 8.0),
+                  const SizedBox(height: 8.0),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
                       RichText(
-                        text: TextSpan(
+                        text: const TextSpan(
                           text: 'Powered by: ',
                           style: TextStyle(
                             fontFamily: 'OpenSans',
@@ -61,8 +61,8 @@ class Footer extends StatelessWidget {
                           ],
                         ),
                       ),
-                      SizedBox(width: 4.0),
-                      FlutterLogo(size: 20.0)
+                      const SizedBox(width: 4.0),
+                      const FlutterLogo(size: 20.0)
                     ],
                   ),
                 ],
@@ -73,7 +73,7 @@ class Footer extends StatelessWidget {
         Container(
           decoration: BoxDecoration(
             color: Palette.firebaseNavy,
-            borderRadius: BorderRadius.only(
+            borderRadius: const BorderRadius.only(
               bottomLeft: Radius.circular(30.0),
               bottomRight: Radius.circular(30.0),
             ),

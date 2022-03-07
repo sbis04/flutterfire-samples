@@ -54,7 +54,7 @@ class _EPSignInFormState extends State<EPSignInForm> {
                   label: 'Email',
                   hint: 'Enter your email',
                 ),
-                SizedBox(height: 16.0),
+                const SizedBox(height: 16.0),
                 CustomFormField(
                   controller: _passwordController,
                   focusNode: widget.passwordFocusNode,
@@ -80,8 +80,8 @@ class _EPSignInFormState extends State<EPSignInForm> {
                   ),
                 )
               : Padding(
-                  padding: EdgeInsets.only(left: 0.0, right: 0.0),
-                  child: Container(
+                  padding: const EdgeInsets.only(left: 0.0, right: 0.0),
+                  child: SizedBox(
                     width: double.maxFinite,
                     child: ElevatedButton(
                       style: ButtonStyle(
@@ -126,7 +126,7 @@ class _EPSignInFormState extends State<EPSignInForm> {
                         });
                       },
                       child: Padding(
-                        padding: EdgeInsets.only(top: 16.0, bottom: 16.0),
+                        padding: const EdgeInsets.only(top: 16.0, bottom: 16.0),
                         child: Text(
                           'LOGIN',
                           style: TextStyle(
@@ -140,7 +140,7 @@ class _EPSignInFormState extends State<EPSignInForm> {
                     ),
                   ),
                 ),
-          SizedBox(height: 16.0),
+          const SizedBox(height: 16.0),
           InkWell(
             onTap: () {
               Navigator.of(context).pushReplacement(

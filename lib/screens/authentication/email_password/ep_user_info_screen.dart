@@ -26,9 +26,10 @@ class _EPUserInfoScreenState extends State<EPUserInfoScreen> {
 
   Route _routeToSignInScreen() {
     return PageRouteBuilder(
-      pageBuilder: (context, animation, secondaryAnimation) => EPSignInScreen(),
+      pageBuilder: (context, animation, secondaryAnimation) =>
+          const EPSignInScreen(),
       transitionsBuilder: (context, animation, secondaryAnimation, child) {
-        var begin = Offset(-1.0, 0.0);
+        var begin = const Offset(-1.0, 0.0);
         var end = Offset.zero;
         var curve = Curves.ease;
 
@@ -58,7 +59,7 @@ class _EPUserInfoScreenState extends State<EPUserInfoScreen> {
       appBar: AppBar(
         elevation: 0,
         backgroundColor: Palette.firebaseNavy,
-        title: AppBarTitle(
+        title: const AppBarTitle(
           sectionName: 'Authentication',
         ),
       ),
@@ -86,7 +87,7 @@ class _EPUserInfoScreenState extends State<EPUserInfoScreen> {
                   ),
                 ),
               ),
-              SizedBox(height: 16.0),
+              const SizedBox(height: 16.0),
               Text(
                 'Hello',
                 style: TextStyle(
@@ -94,7 +95,7 @@ class _EPUserInfoScreenState extends State<EPUserInfoScreen> {
                   fontSize: 26,
                 ),
               ),
-              SizedBox(height: 8.0),
+              const SizedBox(height: 8.0),
               Text(
                 widget._user.displayName!,
                 style: TextStyle(
@@ -102,7 +103,7 @@ class _EPUserInfoScreenState extends State<EPUserInfoScreen> {
                   fontSize: 26,
                 ),
               ),
-              SizedBox(height: 24.0),
+              const SizedBox(height: 24.0),
               _isEmailVerified
                   ? Row(
                       mainAxisSize: MainAxisSize.min,
@@ -110,8 +111,8 @@ class _EPUserInfoScreenState extends State<EPUserInfoScreen> {
                         ClipOval(
                           child: Material(
                             color: Colors.greenAccent.withOpacity(0.6),
-                            child: Padding(
-                              padding: const EdgeInsets.all(4.0),
+                            child: const Padding(
+                              padding: EdgeInsets.all(4.0),
                               child: Icon(
                                 Icons.check,
                                 size: 20,
@@ -120,8 +121,8 @@ class _EPUserInfoScreenState extends State<EPUserInfoScreen> {
                             ),
                           ),
                         ),
-                        SizedBox(width: 8.0),
-                        Text(
+                        const SizedBox(width: 8.0),
+                        const Text(
                           'Email is verified',
                           style: TextStyle(
                             color: Colors.greenAccent,
@@ -137,8 +138,8 @@ class _EPUserInfoScreenState extends State<EPUserInfoScreen> {
                         ClipOval(
                           child: Material(
                             color: Colors.redAccent.withOpacity(0.8),
-                            child: Padding(
-                              padding: const EdgeInsets.all(4.0),
+                            child: const Padding(
+                              padding: EdgeInsets.all(4.0),
                               child: Icon(
                                 Icons.close,
                                 size: 20,
@@ -147,8 +148,8 @@ class _EPUserInfoScreenState extends State<EPUserInfoScreen> {
                             ),
                           ),
                         ),
-                        SizedBox(width: 8.0),
-                        Text(
+                        const SizedBox(width: 8.0),
+                        const Text(
                           'Email is not verified',
                           style: TextStyle(
                             color: Colors.redAccent,
@@ -158,7 +159,7 @@ class _EPUserInfoScreenState extends State<EPUserInfoScreen> {
                         ),
                       ],
                     ),
-              SizedBox(height: 8.0),
+              const SizedBox(height: 8.0),
               Visibility(
                 visible: !_isEmailVerified,
                 child: Row(
@@ -191,7 +192,8 @@ class _EPUserInfoScreenState extends State<EPUserInfoScreen> {
                               });
                             },
                             child: Padding(
-                              padding: EdgeInsets.only(top: 8.0, bottom: 8.0),
+                              padding:
+                                  const EdgeInsets.only(top: 8.0, bottom: 8.0),
                               child: Text(
                                 'Verify',
                                 style: TextStyle(
@@ -203,9 +205,9 @@ class _EPUserInfoScreenState extends State<EPUserInfoScreen> {
                               ),
                             ),
                           ),
-                    SizedBox(width: 16.0),
+                    const SizedBox(width: 16.0),
                     IconButton(
-                      icon: Icon(Icons.refresh),
+                      icon: const Icon(Icons.refresh),
                       onPressed: () async {
                         User? user = await EPAuthentication.refreshUser(_user);
 
@@ -220,7 +222,7 @@ class _EPUserInfoScreenState extends State<EPUserInfoScreen> {
                   ],
                 ),
               ),
-              SizedBox(height: 24.0),
+              const SizedBox(height: 24.0),
               Text(
                 'You are now signed in using Firebase Authentication. To sign out of your account click the "Sign Out" button below.',
                 style: TextStyle(
@@ -228,9 +230,9 @@ class _EPUserInfoScreenState extends State<EPUserInfoScreen> {
                     fontSize: 14,
                     letterSpacing: 0.2),
               ),
-              SizedBox(height: 16.0),
+              const SizedBox(height: 16.0),
               _isSigningOut
-                  ? CircularProgressIndicator(
+                  ? const CircularProgressIndicator(
                       valueColor: AlwaysStoppedAnimation<Color>(
                         Colors.redAccent,
                       ),
@@ -257,7 +259,7 @@ class _EPUserInfoScreenState extends State<EPUserInfoScreen> {
                         Navigator.of(context)
                             .pushReplacement(_routeToSignInScreen());
                       },
-                      child: Padding(
+                      child: const Padding(
                         padding: EdgeInsets.only(top: 8.0, bottom: 8.0),
                         child: Text(
                           'Sign Out',

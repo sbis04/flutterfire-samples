@@ -4,6 +4,8 @@ import 'package:flutterfire_samples/widgets/app_bar_title.dart';
 import 'package:flutterfire_samples/widgets/database/crud/db_add_item_form.dart';
 
 class DbAddScreen extends StatelessWidget {
+  DbAddScreen({Key? key}) : super(key: key);
+
   final FocusNode _titleFocusNode = FocusNode();
   final FocusNode _descriptionFocusNode = FocusNode();
 
@@ -19,20 +21,22 @@ class DbAddScreen extends StatelessWidget {
         appBar: AppBar(
           elevation: 0,
           backgroundColor: Palette.firebaseNavy,
-          title: AppBarTitle(
+          title: const AppBarTitle(
             sectionName: 'CRUD',
           ),
         ),
         body: SafeArea(
-          child: Padding(
-            padding: const EdgeInsets.only(
-              left: 16.0,
-              right: 16.0,
-              bottom: 20.0,
-            ),
-            child: DbAddItemForm(
-              titleFocusNode: _titleFocusNode,
-              descriptionFocusNode: _descriptionFocusNode,
+          child: SingleChildScrollView(
+            child: Padding(
+              padding: const EdgeInsets.only(
+                left: 16.0,
+                right: 16.0,
+                bottom: 20.0,
+              ),
+              child: DbAddItemForm(
+                titleFocusNode: _titleFocusNode,
+                descriptionFocusNode: _descriptionFocusNode,
+              ),
             ),
           ),
         ),

@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
@@ -7,7 +9,10 @@ class EPAuthentication {
       backgroundColor: Colors.black,
       content: Text(
         content,
-        style: TextStyle(color: Colors.redAccent, letterSpacing: 0.5),
+        style: const TextStyle(
+          color: Colors.redAccent,
+          letterSpacing: 0.5,
+        ),
       ),
     );
   }
@@ -28,14 +33,14 @@ class EPAuthentication {
       user = userCredential.user;
     } on FirebaseAuthException catch (e) {
       if (e.code == 'user-not-found') {
-        print('No user found for that email.');
+        log('No user found for that email.');
         ScaffoldMessenger.of(context).showSnackBar(
           EPAuthentication.customSnackBar(
             content: 'No user found for that email. Please create an account.',
           ),
         );
       } else if (e.code == 'wrong-password') {
-        print('Wrong password provided.');
+        log('Wrong password provided.');
         ScaffoldMessenger.of(context).showSnackBar(
           EPAuthentication.customSnackBar(
             content: 'Wrong password provided.',
@@ -63,19 +68,19 @@ class EPAuthentication {
       );
 
       user = userCredential.user;
-      await user!.updateProfile(displayName: name);
+      await user!.updateDisplayName(name);
       await user.reload();
       user = auth.currentUser;
     } on FirebaseAuthException catch (e) {
       if (e.code == 'weak-password') {
-        print('The password provided is too weak.');
+        log('The password provided is too weak.');
         ScaffoldMessenger.of(context).showSnackBar(
           EPAuthentication.customSnackBar(
             content: 'The password provided is too weak.',
           ),
         );
       } else if (e.code == 'email-already-in-use') {
-        print('The account already exists for that email.');
+        log('The account already exists for that email.');
         ScaffoldMessenger.of(context).showSnackBar(
           EPAuthentication.customSnackBar(
             content: 'The account already exists for that email.',
@@ -83,7 +88,7 @@ class EPAuthentication {
         );
       }
     } catch (e) {
-      print(e);
+      log(e.toString());
     }
 
     return user;

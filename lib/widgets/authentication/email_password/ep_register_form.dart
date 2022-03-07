@@ -30,13 +30,13 @@ class _EPRegisterFormState extends State<EPRegisterForm> {
 
   final _registerFormKey = GlobalKey<FormState>();
 
-  bool _isSingningUp = false;
+  bool _isSigningUp = false;
 
   Route _routeToSignInScreen() {
     return PageRouteBuilder(
       pageBuilder: (context, animation, secondaryAnimation) => EPSignInScreen(),
       transitionsBuilder: (context, animation, secondaryAnimation, child) {
-        var begin = Offset(-1.0, 0.0);
+        var begin = const Offset(-1.0, 0.0);
         var end = Offset.zero;
         var curve = Curves.ease;
 
@@ -77,7 +77,7 @@ class _EPRegisterFormState extends State<EPRegisterForm> {
                   label: 'Name',
                   hint: 'Enter your name',
                 ),
-                SizedBox(height: 16.0),
+                const SizedBox(height: 16.0),
                 CustomFormField(
                   controller: _emailController,
                   focusNode: widget.emailFocusNode,
@@ -89,7 +89,7 @@ class _EPRegisterFormState extends State<EPRegisterForm> {
                   label: 'Email',
                   hint: 'Enter your email',
                 ),
-                SizedBox(height: 16.0),
+                const SizedBox(height: 16.0),
                 CustomFormField(
                   controller: _passwordController,
                   focusNode: widget.passwordFocusNode,
@@ -105,8 +105,8 @@ class _EPRegisterFormState extends State<EPRegisterForm> {
               ],
             ),
           ),
-          SizedBox(height: 24.0),
-          _isSingningUp
+          const SizedBox(height: 24.0),
+          _isSigningUp
               ? Padding(
                   padding: const EdgeInsets.all(16.0),
                   child: CircularProgressIndicator(
@@ -116,8 +116,8 @@ class _EPRegisterFormState extends State<EPRegisterForm> {
                   ),
                 )
               : Padding(
-                  padding: EdgeInsets.only(left: 0.0, right: 0.0),
-                  child: Container(
+                  padding:const  EdgeInsets.only(left: 0.0, right: 0.0),
+                  child: SizedBox(
                     width: double.maxFinite,
                     child: ElevatedButton(
                       style: ButtonStyle(
@@ -135,7 +135,7 @@ class _EPRegisterFormState extends State<EPRegisterForm> {
                         widget.passwordFocusNode.unfocus();
 
                         setState(() {
-                          _isSingningUp = true;
+                          _isSigningUp = true;
                         });
 
                         if (_registerFormKey.currentState!.validate()) {
@@ -159,11 +159,11 @@ class _EPRegisterFormState extends State<EPRegisterForm> {
                         }
 
                         setState(() {
-                          _isSingningUp = false;
+                          _isSigningUp = false;
                         });
                       },
                       child: Padding(
-                        padding: EdgeInsets.only(top: 16.0, bottom: 16.0),
+                        padding: const EdgeInsets.only(top: 16.0, bottom: 16.0),
                         child: Text(
                           'REGISTER',
                           style: TextStyle(
@@ -177,7 +177,7 @@ class _EPRegisterFormState extends State<EPRegisterForm> {
                     ),
                   ),
                 ),
-          SizedBox(height: 16.0),
+          const SizedBox(height: 16.0),
           InkWell(
             onTap: () {
               Navigator.of(context).pushReplacement(

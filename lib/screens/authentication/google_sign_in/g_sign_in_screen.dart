@@ -5,6 +5,8 @@ import 'package:flutterfire_samples/widgets/authentication/google_sign_in/google
 import 'package:flutterfire_samples/widgets/custom_back_button.dart';
 
 class GSignInScreen extends StatefulWidget {
+  const GSignInScreen({Key? key}) : super(key: key);
+
   @override
   _GSignInScreenState createState() => _GSignInScreenState();
 }
@@ -39,7 +41,7 @@ class _GSignInScreenState extends State<GSignInScreen> {
                             height: 160,
                           ),
                         ),
-                        SizedBox(height: 20),
+                        const SizedBox(height: 20),
                         Text(
                           'FlutterFire',
                           style: TextStyle(
@@ -62,10 +64,10 @@ class _GSignInScreenState extends State<GSignInScreen> {
                         GAuthentication.initializeFirebase(context: context),
                     builder: (context, snapshot) {
                       if (snapshot.hasError) {
-                        return Text('Error initializing Firebase');
+                        return const Text('Error initializing Firebase');
                       } else if (snapshot.connectionState ==
                           ConnectionState.done) {
-                        return GoogleSignInButton();
+                        return const GoogleSignInButton();
                       }
                       return CircularProgressIndicator(
                         valueColor: AlwaysStoppedAnimation<Color>(
@@ -77,7 +79,7 @@ class _GSignInScreenState extends State<GSignInScreen> {
                 ],
               ),
             ),
-            CustomBackButton(),
+            const CustomBackButton(),
           ],
         ),
       ),

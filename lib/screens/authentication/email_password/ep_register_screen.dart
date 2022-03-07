@@ -4,6 +4,8 @@ import 'package:flutterfire_samples/widgets/app_bar_title.dart';
 import 'package:flutterfire_samples/widgets/authentication/email_password/ep_register_form.dart';
 
 class EPRegisterScreen extends StatefulWidget {
+  const EPRegisterScreen({Key? key}) : super(key: key);
+
   @override
   _EPRegisterScreenState createState() => _EPRegisterScreenState();
 }
@@ -26,7 +28,7 @@ class _EPRegisterScreenState extends State<EPRegisterScreen> {
         appBar: AppBar(
           elevation: 0,
           backgroundColor: Palette.firebaseNavy,
-          title: AppBarTitle(
+          title: const AppBarTitle(
             sectionName: 'Authentication',
           ),
         ),

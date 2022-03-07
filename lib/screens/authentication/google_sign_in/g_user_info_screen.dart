@@ -23,9 +23,10 @@ class _GUserInfoScreenState extends State<GUserInfoScreen> {
 
   Route _routeToSignInScreen() {
     return PageRouteBuilder(
-      pageBuilder: (context, animation, secondaryAnimation) => GSignInScreen(),
+      pageBuilder: (context, animation, secondaryAnimation) =>
+          const GSignInScreen(),
       transitionsBuilder: (context, animation, secondaryAnimation, child) {
-        var begin = Offset(-1.0, 0.0);
+        var begin = const Offset(-1.0, 0.0);
         var end = Offset.zero;
         var curve = Curves.ease;
 
@@ -54,7 +55,7 @@ class _GUserInfoScreenState extends State<GUserInfoScreen> {
       appBar: AppBar(
         elevation: 0,
         backgroundColor: Palette.firebaseNavy,
-        title: AppBarTitle(
+        title: const AppBarTitle(
           sectionName: 'Authentication',
         ),
       ),
@@ -92,7 +93,7 @@ class _GUserInfoScreenState extends State<GUserInfoScreen> {
                         ),
                       ),
                     ),
-              SizedBox(height: 16.0),
+              const SizedBox(height: 16.0),
               Text(
                 'Hello',
                 style: TextStyle(
@@ -100,7 +101,7 @@ class _GUserInfoScreenState extends State<GUserInfoScreen> {
                   fontSize: 26,
                 ),
               ),
-              SizedBox(height: 8.0),
+              const SizedBox(height: 8.0),
               Text(
                 _user.displayName!,
                 style: TextStyle(
@@ -108,7 +109,7 @@ class _GUserInfoScreenState extends State<GUserInfoScreen> {
                   fontSize: 26,
                 ),
               ),
-              SizedBox(height: 8.0),
+              const SizedBox(height: 8.0),
               Text(
                 '( ${_user.email!} )',
                 style: TextStyle(
@@ -117,7 +118,7 @@ class _GUserInfoScreenState extends State<GUserInfoScreen> {
                   letterSpacing: 0.5,
                 ),
               ),
-              SizedBox(height: 24.0),
+              const SizedBox(height: 24.0),
               Text(
                 'You are now signed in using your Google account. To sign out of your account click the "Sign Out" button below.',
                 style: TextStyle(
@@ -125,9 +126,9 @@ class _GUserInfoScreenState extends State<GUserInfoScreen> {
                     fontSize: 14,
                     letterSpacing: 0.2),
               ),
-              SizedBox(height: 16.0),
+              const SizedBox(height: 16.0),
               _isSigningOut
-                  ? CircularProgressIndicator(
+                  ? const CircularProgressIndicator(
                       valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
                     )
                   : ElevatedButton(
@@ -152,7 +153,7 @@ class _GUserInfoScreenState extends State<GUserInfoScreen> {
                         Navigator.of(context)
                             .pushReplacement(_routeToSignInScreen());
                       },
-                      child: Padding(
+                      child: const Padding(
                         padding: EdgeInsets.only(top: 8.0, bottom: 8.0),
                         child: Text(
                           'Sign Out',
