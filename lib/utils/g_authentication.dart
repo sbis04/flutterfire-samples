@@ -4,7 +4,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutterfire_samples/firebase_options.dart';
-import 'package:flutterfire_samples/screens/authentication/google_sign_in/g_user_info_screen.dart';
+import 'package:flutterfire_samples/screens/authentication/google_sign_in/user_info_screen.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:flutter/foundation.dart' show kIsWeb;
 
@@ -31,7 +31,7 @@ class GAuthentication {
     if (user != null) {
       Navigator.of(context).pushReplacement(
         MaterialPageRoute(
-          builder: (context) => GUserInfoScreen(
+          builder: (context) => UserInfoScreen(
             user: user,
           ),
         ),

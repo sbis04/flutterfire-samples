@@ -4,27 +4,27 @@ import 'package:flutterfire_samples/res/custom_colors.dart';
 import 'package:flutterfire_samples/utils/g_authentication.dart';
 import 'package:flutterfire_samples/widgets/app_bar_title.dart';
 
-import 'g_sign_in_screen.dart';
+import 'sign_in_screen.dart';
 
-class GUserInfoScreen extends StatefulWidget {
-  const GUserInfoScreen({Key? key, required User user})
+class UserInfoScreen extends StatefulWidget {
+  const UserInfoScreen({Key? key, required User user})
       : _user = user,
         super(key: key);
 
   final User _user;
 
   @override
-  _GUserInfoScreenState createState() => _GUserInfoScreenState();
+  _UserInfoScreenState createState() => _UserInfoScreenState();
 }
 
-class _GUserInfoScreenState extends State<GUserInfoScreen> {
+class _UserInfoScreenState extends State<UserInfoScreen> {
   late User _user;
   bool _isSigningOut = false;
 
   Route _routeToSignInScreen() {
     return PageRouteBuilder(
       pageBuilder: (context, animation, secondaryAnimation) =>
-          const GSignInScreen(),
+          const SignInScreen(),
       transitionsBuilder: (context, animation, secondaryAnimation, child) {
         var begin = const Offset(-1.0, 0.0);
         var end = Offset.zero;

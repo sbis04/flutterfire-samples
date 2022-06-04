@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutterfire_samples/res/custom_colors.dart';
-import 'package:flutterfire_samples/res/fire_assets.dart';
 import 'package:flutterfire_samples/res/structure.dart';
-import 'package:flutterfire_samples/screens/authentication/google_sign_in/g_sign_in_screen.dart';
-import 'package:flutterfire_samples/screens/database/crud/db_login_screen.dart';
 import 'package:flutterfire_samples/widgets/app_bar_title.dart';
 import 'package:flutterfire_samples/widgets/footer.dart';
 
@@ -15,31 +12,7 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  // final List<String> _listFireItems = [
-  //   'Authentication',
-  //   'Database',
-  //   'Backend Actions',
-  //   'Machine Learning',
-  //   'Other utilities',
-  // ];
-
-  // final List<String> _listFireIcons = [
-  //   FireAssets.fireAuthentication,
-  //   FireAssets.fireDatabase,
-  //   FireAssets.fireBackend,
-  //   FireAssets.fireMachineLearning,
-  //   FireAssets.fireOtherUtilities,
-  // ];
-
   final List<bool> _isExpanded = [false, false, false, false, false];
-
-  // final List<Widget?> _listFeatureScreens = [
-  //   const GSignInScreen(),
-  //   DbLoginScreen(),
-  //   null,
-  //   null,
-  //   null,
-  // ];
 
   @override
   Widget build(BuildContext context) {

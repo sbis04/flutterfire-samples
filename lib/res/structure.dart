@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutterfire_samples/screens/authentication/email_password/ep_sign_in_screen.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-import '../screens/authentication/google_sign_in/g_sign_in_screen.dart';
-import '../screens/database/crud/db_login_screen.dart';
+import '../screens/authentication/email_password/sign_in_screen.dart' as email;
+import '../screens/authentication/google_sign_in/sign_in_screen.dart' as google;
+
 import 'custom_colors.dart';
 import 'fire_assets.dart';
 
@@ -18,7 +18,7 @@ List<Map<String, dynamic>> menu = [
           Icons.email_rounded,
           color: Palette.firebaseNavy,
         ),
-        'widget': const EPSignInScreen(),
+        'widget': const email.SignInScreen(),
       },
       {
         'name': 'Google Sign In',
@@ -26,7 +26,7 @@ List<Map<String, dynamic>> menu = [
           FontAwesomeIcons.google,
           color: Palette.firebaseNavy,
         ),
-        'widget': const GSignInScreen(),
+        'widget': const google.SignInScreen(),
       },
       {
         'name': 'Apple Sign In',

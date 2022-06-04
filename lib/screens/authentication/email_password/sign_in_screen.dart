@@ -3,18 +3,18 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutterfire_samples/firebase_options.dart';
 import 'package:flutterfire_samples/res/custom_colors.dart';
-import 'package:flutterfire_samples/widgets/authentication/email_password/ep_sign_in_form.dart';
+import 'package:flutterfire_samples/widgets/authentication/email_password/sign_in_form.dart';
 
-import 'ep_user_info_screen.dart';
+import 'user_info_screen.dart';
 
-class EPSignInScreen extends StatefulWidget {
-  const EPSignInScreen({Key? key}) : super(key: key);
+class SignInScreen extends StatefulWidget {
+  const SignInScreen({Key? key}) : super(key: key);
 
   @override
-  _EPSignInScreenState createState() => _EPSignInScreenState();
+  _SignInScreenState createState() => _SignInScreenState();
 }
 
-class _EPSignInScreenState extends State<EPSignInScreen> {
+class _SignInScreenState extends State<SignInScreen> {
   final FocusNode _emailFocusNode = FocusNode();
   final FocusNode _passwordFocusNode = FocusNode();
 
@@ -28,7 +28,7 @@ class _EPSignInScreenState extends State<EPSignInScreen> {
     if (user != null) {
       Navigator.of(context).pushReplacement(
         MaterialPageRoute(
-          builder: (context) => EPUserInfoScreen(
+          builder: (context) => UserInfoScreen(
             user: user,
           ),
         ),
@@ -97,7 +97,7 @@ class _EPSignInScreenState extends State<EPSignInScreen> {
                           return const Text('Error initializing Firebase');
                         } else if (snapshot.connectionState ==
                             ConnectionState.done) {
-                          return EPSignInForm(
+                          return SignInForm(
                             emailFocusNode: _emailFocusNode,
                             passwordFocusNode: _passwordFocusNode,
                           );

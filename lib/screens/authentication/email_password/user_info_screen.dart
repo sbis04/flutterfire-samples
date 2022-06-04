@@ -4,20 +4,20 @@ import 'package:flutterfire_samples/res/custom_colors.dart';
 import 'package:flutterfire_samples/utils/ep_authentication.dart';
 import 'package:flutterfire_samples/widgets/app_bar_title.dart';
 
-import 'ep_sign_in_screen.dart';
+import 'sign_in_screen.dart';
 
-class EPUserInfoScreen extends StatefulWidget {
-  const EPUserInfoScreen({Key? key, required User user})
+class UserInfoScreen extends StatefulWidget {
+  const UserInfoScreen({Key? key, required User user})
       : _user = user,
         super(key: key);
 
   final User _user;
 
   @override
-  _EPUserInfoScreenState createState() => _EPUserInfoScreenState();
+  _UserInfoScreenState createState() => _UserInfoScreenState();
 }
 
-class _EPUserInfoScreenState extends State<EPUserInfoScreen> {
+class _UserInfoScreenState extends State<UserInfoScreen> {
   late bool _isEmailVerified;
   late User _user;
 
@@ -27,7 +27,7 @@ class _EPUserInfoScreenState extends State<EPUserInfoScreen> {
   Route _routeToSignInScreen() {
     return PageRouteBuilder(
       pageBuilder: (context, animation, secondaryAnimation) =>
-          const EPSignInScreen(),
+          const SignInScreen(),
       transitionsBuilder: (context, animation, secondaryAnimation, child) {
         var begin = const Offset(-1.0, 0.0);
         var end = Offset.zero;

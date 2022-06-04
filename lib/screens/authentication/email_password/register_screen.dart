@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutterfire_samples/res/custom_colors.dart';
 import 'package:flutterfire_samples/widgets/app_bar_title.dart';
-import 'package:flutterfire_samples/widgets/authentication/email_password/ep_register_form.dart';
+import 'package:flutterfire_samples/widgets/authentication/email_password/register_form.dart';
 
-class EPRegisterScreen extends StatefulWidget {
-  const EPRegisterScreen({Key? key}) : super(key: key);
+class RegisterScreen extends StatefulWidget {
+  const RegisterScreen({Key? key}) : super(key: key);
 
   @override
-  _EPRegisterScreenState createState() => _EPRegisterScreenState();
+  _RegisterScreenState createState() => _RegisterScreenState();
 }
 
-class _EPRegisterScreenState extends State<EPRegisterScreen> {
+class _RegisterScreenState extends State<RegisterScreen> {
   final FocusNode _nameFocusNode = FocusNode();
   final FocusNode _emailFocusNode = FocusNode();
   final FocusNode _passwordFocusNode = FocusNode();
@@ -39,7 +39,7 @@ class _EPRegisterScreenState extends State<EPRegisterScreen> {
               right: 16.0,
               bottom: 20.0,
             ),
-            child: EPRegisterForm(
+            child: RegisterForm(
               nameFocusNode: _nameFocusNode,
               emailFocusNode: _emailFocusNode,
               passwordFocusNode: _passwordFocusNode,

@@ -4,14 +4,14 @@ import 'package:flutterfire_samples/utils/g_authentication.dart';
 import 'package:flutterfire_samples/widgets/authentication/google_sign_in/google_sign_in_button.dart';
 import 'package:flutterfire_samples/widgets/custom_back_button.dart';
 
-class GSignInScreen extends StatefulWidget {
-  const GSignInScreen({Key? key}) : super(key: key);
+class SignInScreen extends StatefulWidget {
+  const SignInScreen({Key? key}) : super(key: key);
 
   @override
-  _GSignInScreenState createState() => _GSignInScreenState();
+  _SignInScreenState createState() => _SignInScreenState();
 }
 
-class _GSignInScreenState extends State<GSignInScreen> {
+class _SignInScreenState extends State<SignInScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
