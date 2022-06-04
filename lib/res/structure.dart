@@ -7,30 +7,6 @@ import '../screens/database/crud/db_login_screen.dart';
 import 'custom_colors.dart';
 import 'fire_assets.dart';
 
-final List<String> _listFireItems = [
-  'Authentication',
-  'Database',
-  'Backend Actions',
-  'Machine Learning',
-  'Other utilities',
-];
-
-final List<String> _listFireIcons = [
-  FireAssets.fireAuthentication,
-  FireAssets.fireDatabase,
-  FireAssets.fireBackend,
-  FireAssets.fireMachineLearning,
-  FireAssets.fireOtherUtilities,
-];
-
-final List<Widget?> authenticationScreens = [
-  const GSignInScreen(),
-  DbLoginScreen(),
-  null,
-  null,
-  null,
-];
-
 List<Map<String, dynamic>> menu = [
   {
     'name': 'Authentication',
