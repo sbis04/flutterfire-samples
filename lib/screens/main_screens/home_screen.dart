@@ -1,37 +1,45 @@
 import 'package:flutter/material.dart';
 import 'package:flutterfire_samples/res/custom_colors.dart';
 import 'package:flutterfire_samples/res/fire_assets.dart';
+import 'package:flutterfire_samples/res/structure.dart';
 import 'package:flutterfire_samples/screens/authentication/google_sign_in/g_sign_in_screen.dart';
 import 'package:flutterfire_samples/screens/database/crud/db_login_screen.dart';
 import 'package:flutterfire_samples/widgets/app_bar_title.dart';
 import 'package:flutterfire_samples/widgets/footer.dart';
 
-class HomeScreen extends StatelessWidget {
-  HomeScreen({Key? key}) : super(key: key);
+class HomeScreen extends StatefulWidget {
+  const HomeScreen({Key? key}) : super(key: key);
 
-  final List<String> _listFireItems = [
-    'Authentication',
-    'Database',
-    'Backend Actions',
-    'Machine Learning',
-    'Other utilities',
-  ];
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
 
-  final List<String> _listFireIcons = [
-    FireAssets.fireAuthentication,
-    FireAssets.fireDatabase,
-    FireAssets.fireBackend,
-    FireAssets.fireMachineLearning,
-    FireAssets.fireOtherUtilities,
-  ];
+class _HomeScreenState extends State<HomeScreen> {
+  // final List<String> _listFireItems = [
+  //   'Authentication',
+  //   'Database',
+  //   'Backend Actions',
+  //   'Machine Learning',
+  //   'Other utilities',
+  // ];
 
-  final List<Widget?> _listFeatureScreens = [
-    GSignInScreen(),
-    DbLoginScreen(),
-    null,
-    null,
-    null,
-  ];
+  // final List<String> _listFireIcons = [
+  //   FireAssets.fireAuthentication,
+  //   FireAssets.fireDatabase,
+  //   FireAssets.fireBackend,
+  //   FireAssets.fireMachineLearning,
+  //   FireAssets.fireOtherUtilities,
+  // ];
+
+  final List<bool> _isExpanded = [false, false, false, false, false];
+
+  // final List<Widget?> _listFeatureScreens = [
+  //   const GSignInScreen(),
+  //   DbLoginScreen(),
+  //   null,
+  //   null,
+  //   null,
+  // ];
 
   @override
   Widget build(BuildContext context) {
@@ -40,7 +48,7 @@ class HomeScreen extends StatelessWidget {
       appBar: AppBar(
         elevation: 0,
         backgroundColor: Palette.firebaseNavy,
-        title: AppBarTitle(
+        title: const AppBarTitle(
           sectionName: 'Samples',
         ),
       ),
@@ -48,69 +56,158 @@ class HomeScreen extends StatelessWidget {
         child: Stack(
           children: [
             Container(
-              color: Palette.firebaseNavy,
-              child: Padding(
-                padding: const EdgeInsets.only(
-                  left: 16.0,
-                  right: 16.0,
-                  bottom: 100.0,
+              padding: const EdgeInsets.only(
+                // left: 16.0,
+                // right: 16.0,
+                bottom: 80.0,
+              ),
+              child: Container(
+                decoration: const BoxDecoration(
+                  color: Palette.firebaseNavy,
+                  borderRadius: BorderRadius.only(
+                    bottomLeft: Radius.circular(30.0),
+                    bottomRight: Radius.circular(30.0),
+                  ),
                 ),
-                child: ListView.separated(
-                  physics: BouncingScrollPhysics(),
-                  separatorBuilder: (context, index) => SizedBox(height: 8.0),
-                  itemCount: _listFireItems.length,
-                  itemBuilder: (context, index) => InkWell(
-                    borderRadius: BorderRadius.circular(16.0),
-                    onTap: _listFeatureScreens[index] != null
-                        ? () {
-                            Navigator.of(context).push(
-                              MaterialPageRoute(
-                                builder: (context) =>
-                                    _listFeatureScreens[index]!,
-                              ),
-                            );
-                          }
-                        : null,
-                    child: Card(
-                      color: Colors.black12,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(16.0),
+                child: Padding(
+                  padding: const EdgeInsets.only(
+                    left: 16.0,
+                    right: 16.0,
+                  ),
+                  child: ListView.separated(
+                    physics: const BouncingScrollPhysics(),
+                    separatorBuilder: (context, index) => const SizedBox(
+                      height: 12.0,
+                    ),
+                    itemCount: menu.length,
+                    itemBuilder: (context, index) => Padding(
+                      padding: EdgeInsets.only(
+                        bottom: index == menu.length - 1 ? 30.0 : 0.0,
                       ),
-                      child: Row(
-                        children: [
-                          Padding(
-                            padding: const EdgeInsets.fromLTRB(
-                              24.0,
-                              16.0,
-                              16.0,
-                              16.0,
-                            ),
-                            child: Image.asset(
-                              _listFireIcons[index],
-                              color: Palette.firebaseYellow.withOpacity(
-                                _listFeatureScreens[index] != null ? 1.0 : 0.5,
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(12),
+                        child: ExpansionPanelList(
+                          expansionCallback: (panelIndex, isExpanded) {
+                            setState(() {
+                              _isExpanded[index] = !_isExpanded[index];
+                            });
+                          },
+                          children: [
+                            ExpansionPanel(
+                              backgroundColor: Colors.black54,
+                              canTapOnHeader: true,
+                              headerBuilder:
+                                  (BuildContext context, bool isExpanded) {
+                                return Row(
+                                  children: [
+                                    Padding(
+                                      padding: const EdgeInsets.fromLTRB(
+                                        24.0,
+                                        16.0,
+                                        16.0,
+                                        16.0,
+                                      ),
+                                      child: Image.asset(
+                                        menu[index]['icon'],
+                                        color: Palette.firebaseYellow,
+                                        //   Palette.firebaseYellow.withOpacity(
+                                        // screensMap[menu[index].name] != null
+                                        //     ? 1.0
+                                        //     : 0.5,
+                                        // ),
+                                        width: 40.0,
+                                      ),
+                                    ),
+                                    Text(
+                                      menu[index]['name'],
+                                      style: const TextStyle(
+                                        color: Colors.white,
+                                        // color: Colors.white.withOpacity(
+                                        //   _listFeatureScreens[index] != null
+                                        //       ? 1.0
+                                        //       : 0.5,
+                                        // ),
+                                        fontSize: 16.0,
+                                        fontWeight: FontWeight.w600,
+                                      ),
+                                    )
+                                  ],
+                                );
+                              },
+                              body: ListView.separated(
+                                physics: const NeverScrollableScrollPhysics(),
+                                shrinkWrap: true,
+                                separatorBuilder: (_, __) =>
+                                    const SizedBox(height: 8),
+                                itemCount: menu[index]['screens'].length,
+                                itemBuilder: (context, index2) {
+                                  return InkWell(
+                                    borderRadius: BorderRadius.circular(16.0),
+                                    onTap: menu[index]['screens'][index2]
+                                                ['widget'] !=
+                                            null
+                                        ? () {
+                                            Navigator.of(context).push(
+                                              MaterialPageRoute(
+                                                builder: (context) =>
+                                                    menu[index]['screens']
+                                                        [index2]['widget'],
+                                              ),
+                                            );
+                                          }
+                                        : null,
+                                    child: Padding(
+                                      padding: const EdgeInsets.fromLTRB(
+                                        24.0,
+                                        16.0,
+                                        16.0,
+                                        16.0,
+                                      ),
+                                      child: Row(
+                                        children: [
+                                          CircleAvatar(
+                                            backgroundColor: menu[index]
+                                                            ['screens'][index2]
+                                                        ['widget'] !=
+                                                    null
+                                                ? Palette.firebaseAmber
+                                                : Palette.firebaseGrey
+                                                    .withOpacity(0.5),
+                                            child: menu[index]['screens']
+                                                [index2]['icon'],
+                                          ),
+                                          const SizedBox(width: 16),
+                                          Text(
+                                            menu[index]['screens'][index2]
+                                                ['name'],
+                                            style: TextStyle(
+                                              color: menu[index]['screens']
+                                                          [index2]['widget'] !=
+                                                      null
+                                                  ? Palette.firebaseYellow
+                                                  : Palette.firebaseGrey
+                                                      .withOpacity(0.5),
+                                              fontSize: 16.0,
+                                              fontWeight: FontWeight.w600,
+                                            ),
+                                          )
+                                        ],
+                                      ),
+                                    ),
+                                  );
+                                },
                               ),
-                              width: 40.0,
+                              isExpanded: _isExpanded[index],
                             ),
-                          ),
-                          Text(
-                            _listFireItems[index],
-                            style: TextStyle(
-                              color: Colors.white.withOpacity(
-                                _listFeatureScreens[index] != null ? 1.0 : 0.5,
-                              ),
-                              fontSize: 16.0,
-                              fontWeight: FontWeight.w600,
-                            ),
-                          )
-                        ],
+                          ],
+                        ),
                       ),
                     ),
                   ),
                 ),
               ),
             ),
-            Align(
+            const Align(
               alignment: Alignment.bottomCenter,
               child: Footer(),
             ),
