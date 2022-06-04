@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:flutterfire_samples/res/custom_colors.dart';
-import 'package:flutterfire_samples/utils/database.dart';
+import 'package:flutterfire_samples/utils/database/database.dart';
 import 'package:flutterfire_samples/widgets/app_bar_title.dart';
 import 'package:flutterfire_samples/widgets/database/crud/db_edit_item_form.dart';
 
@@ -44,7 +44,7 @@ class _DbEditScreenState extends State<DbEditScreen> {
           actions: [
             _isDeleting
                 ? const Padding(
-                    padding:  EdgeInsets.only(
+                    padding: EdgeInsets.only(
                       top: 10.0,
                       bottom: 10.0,
                       right: 16.0,

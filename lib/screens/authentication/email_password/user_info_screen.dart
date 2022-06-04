@@ -1,7 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutterfire_samples/res/custom_colors.dart';
-import 'package:flutterfire_samples/utils/ep_authentication.dart';
+import 'package:flutterfire_samples/utils/authentication/email_password_auth/authentication.dart';
 import 'package:flutterfire_samples/widgets/app_bar_title.dart';
 
 import 'sign_in_screen.dart';
@@ -209,7 +209,7 @@ class _UserInfoScreenState extends State<UserInfoScreen> {
                     IconButton(
                       icon: const Icon(Icons.refresh),
                       onPressed: () async {
-                        User? user = await EPAuthentication.refreshUser(_user);
+                        User? user = await Authentication.refreshUser(_user);
 
                         if (user != null) {
                           setState(() {

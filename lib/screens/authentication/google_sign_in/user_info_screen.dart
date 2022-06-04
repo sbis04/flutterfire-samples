@@ -1,7 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutterfire_samples/res/custom_colors.dart';
-import 'package:flutterfire_samples/utils/g_authentication.dart';
+import 'package:flutterfire_samples/utils/authentication/google_auth/authentication.dart';
 import 'package:flutterfire_samples/widgets/app_bar_title.dart';
 
 import 'sign_in_screen.dart';
@@ -146,7 +146,7 @@ class _UserInfoScreenState extends State<UserInfoScreen> {
                         setState(() {
                           _isSigningOut = true;
                         });
-                        await GAuthentication.signOut(context: context);
+                        await Authentication.signOut(context: context);
                         setState(() {
                           _isSigningOut = false;
                         });

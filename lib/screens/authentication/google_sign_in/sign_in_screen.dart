@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutterfire_samples/res/custom_colors.dart';
-import 'package:flutterfire_samples/utils/g_authentication.dart';
+import 'package:flutterfire_samples/utils/authentication/google_auth/authentication.dart';
 import 'package:flutterfire_samples/widgets/authentication/google_sign_in/google_sign_in_button.dart';
 import 'package:flutterfire_samples/widgets/custom_back_button.dart';
 
@@ -42,14 +42,14 @@ class _SignInScreenState extends State<SignInScreen> {
                           ),
                         ),
                         const SizedBox(height: 20),
-                        Text(
+                        const Text(
                           'FlutterFire',
                           style: TextStyle(
                             color: Palette.firebaseYellow,
                             fontSize: 40,
                           ),
                         ),
-                        Text(
+                        const Text(
                           'Authentication',
                           style: TextStyle(
                             color: Palette.firebaseOrange,
@@ -60,8 +60,7 @@ class _SignInScreenState extends State<SignInScreen> {
                     ),
                   ),
                   FutureBuilder(
-                    future:
-                        GAuthentication.initializeFirebase(context: context),
+                    future: Authentication.initializeFirebase(context: context),
                     builder: (context, snapshot) {
                       if (snapshot.hasError) {
                         return const Text('Error initializing Firebase');
@@ -69,7 +68,7 @@ class _SignInScreenState extends State<SignInScreen> {
                           ConnectionState.done) {
                         return const GoogleSignInButton();
                       }
-                      return CircularProgressIndicator(
+                      return const CircularProgressIndicator(
                         valueColor: AlwaysStoppedAnimation<Color>(
                           Palette.firebaseOrange,
                         ),

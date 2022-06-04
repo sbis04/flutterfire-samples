@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutterfire_samples/res/custom_colors.dart';
 import 'package:flutterfire_samples/screens/database/crud/db_dashboard_screen.dart';
-import 'package:flutterfire_samples/utils/database.dart';
-import 'package:flutterfire_samples/utils/db_validator.dart';
+import 'package:flutterfire_samples/utils/database/database.dart';
+import 'package:flutterfire_samples/utils/database/validator.dart';
 
 import '../../custom_form_field.dart';
 
@@ -41,7 +41,7 @@ class _DbLoginFormState extends State<DbLoginForm> {
                   focusNode: widget.focusNode,
                   keyboardType: TextInputType.text,
                   inputAction: TextInputAction.done,
-                  validator: (value) => DbValidator.validateUserID(
+                  validator: (value) => Validator.validateUserID(
                     uid: value,
                   ),
                   label: 'User ID',

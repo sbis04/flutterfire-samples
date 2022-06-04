@@ -1,8 +1,8 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutterfire_samples/res/custom_colors.dart';
-import 'package:flutterfire_samples/utils/ep_authentication.dart';
-import 'package:flutterfire_samples/utils/ep_validator.dart';
+import 'package:flutterfire_samples/utils/authentication/email_password_auth/authentication.dart';
+import 'package:flutterfire_samples/utils/authentication/email_password_auth/validator.dart';
 
 import '../../../screens/authentication/email_password/email_password.dart';
 import '../../custom_form_field.dart';
@@ -71,7 +71,7 @@ class _RegisterFormState extends State<RegisterForm> {
                   keyboardType: TextInputType.name,
                   inputAction: TextInputAction.next,
                   isCapitalized: true,
-                  validator: (value) => EPValidator.validateName(
+                  validator: (value) => Validator.validateName(
                     name: value,
                   ),
                   label: 'Name',
@@ -83,7 +83,7 @@ class _RegisterFormState extends State<RegisterForm> {
                   focusNode: widget.emailFocusNode,
                   keyboardType: TextInputType.emailAddress,
                   inputAction: TextInputAction.next,
-                  validator: (value) => EPValidator.validateEmail(
+                  validator: (value) => Validator.validateEmail(
                     email: value,
                   ),
                   label: 'Email',
@@ -95,7 +95,7 @@ class _RegisterFormState extends State<RegisterForm> {
                   focusNode: widget.passwordFocusNode,
                   keyboardType: TextInputType.text,
                   inputAction: TextInputAction.done,
-                  validator: (value) => EPValidator.validatePassword(
+                  validator: (value) => Validator.validatePassword(
                     password: value,
                   ),
                   isObscure: true,
@@ -140,7 +140,7 @@ class _RegisterFormState extends State<RegisterForm> {
 
                         if (_registerFormKey.currentState!.validate()) {
                           User? user =
-                              await EPAuthentication.registerUsingEmailPassword(
+                              await Authentication.registerUsingEmailPassword(
                             name: _nameController.text,
                             email: _emailController.text,
                             password: _passwordController.text,

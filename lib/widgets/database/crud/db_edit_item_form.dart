@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
 import 'package:flutterfire_samples/res/custom_colors.dart';
-import 'package:flutterfire_samples/utils/database.dart';
-import 'package:flutterfire_samples/utils/db_validator.dart';
+import 'package:flutterfire_samples/utils/database/database.dart';
+import 'package:flutterfire_samples/utils/database/validator.dart';
 
 import '../../custom_form_field.dart';
 
@@ -77,7 +77,7 @@ class _DbEditItemFormState extends State<DbEditItemForm> {
                   focusNode: widget.titleFocusNode,
                   keyboardType: TextInputType.text,
                   inputAction: TextInputAction.next,
-                  validator: (value) => DbValidator.validateField(
+                  validator: (value) => Validator.validateField(
                     value: value,
                   ),
                   label: 'Title',
@@ -101,7 +101,7 @@ class _DbEditItemFormState extends State<DbEditItemForm> {
                   focusNode: widget.descriptionFocusNode,
                   keyboardType: TextInputType.text,
                   inputAction: TextInputAction.done,
-                  validator: (value) => DbValidator.validateField(
+                  validator: (value) => Validator.validateField(
                     value: value,
                   ),
                   label: 'Description',
