@@ -191,25 +191,3 @@ List<Map<String, dynamic>> menu = [
     ]
   },
 ];
-// List<Menu> menu = [
-//   Menu(
-//     name: _listFireItems[0],
-//     icon: _listFireIcons[0],
-//   ),
-//   Menu(
-//     name: _listFireItems[1],
-//     icon: _listFireIcons[1],
-//   ),
-//   Menu(
-//     name: _listFireItems[2],
-//     icon: _listFireIcons[2],
-//   ),
-//   Menu(
-//     name: _listFireItems[3],
-//     icon: _listFireIcons[3],
-//   ),
-//   Menu(
-//     name: _listFireItems[4],
-//     icon: _listFireIcons[4],
-//   ),
-// ];
