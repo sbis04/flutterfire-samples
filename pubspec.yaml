@@ -31,11 +31,15 @@ dependencies:
   firebase_auth: ^3.3.9
   google_sign_in: ^5.2.4
   cloud_firestore: ^3.1.10
+  json_annotation: ^4.5.0
+  font_awesome_flutter: ^10.1.0
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_lints: ^1.0.0
+  build_runner: ^2.1.11
+  json_serializable: ^6.2.0
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
