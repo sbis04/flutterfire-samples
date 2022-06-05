@@ -14,10 +14,10 @@ class UserInfoScreen extends StatefulWidget {
   final User _user;
 
   @override
-  _UserInfoScreenState createState() => _UserInfoScreenState();
+  UserInfoScreenState createState() => UserInfoScreenState();
 }
 
-class _UserInfoScreenState extends State<UserInfoScreen> {
+class UserInfoScreenState extends State<UserInfoScreen> {
   late bool _isEmailVerified;
   late User _user;
 
@@ -77,8 +77,8 @@ class _UserInfoScreenState extends State<UserInfoScreen> {
               ClipOval(
                 child: Material(
                   color: Palette.firebaseGrey.withOpacity(0.3),
-                  child: Padding(
-                    padding: const EdgeInsets.all(8.0),
+                  child: const Padding(
+                    padding: EdgeInsets.all(8.0),
                     child: Icon(
                       Icons.person,
                       size: 42,
@@ -88,7 +88,7 @@ class _UserInfoScreenState extends State<UserInfoScreen> {
                 ),
               ),
               const SizedBox(height: 16.0),
-              Text(
+              const Text(
                 'Hello',
                 style: TextStyle(
                   color: Palette.firebaseGrey,
@@ -98,7 +98,7 @@ class _UserInfoScreenState extends State<UserInfoScreen> {
               const SizedBox(height: 8.0),
               Text(
                 widget._user.displayName!,
-                style: TextStyle(
+                style: const TextStyle(
                   color: Palette.firebaseYellow,
                   fontSize: 26,
                 ),
@@ -166,7 +166,7 @@ class _UserInfoScreenState extends State<UserInfoScreen> {
                   mainAxisSize: MainAxisSize.min,
                   children: [
                     _verificationEmailBeingSent
-                        ? CircularProgressIndicator(
+                        ? const CircularProgressIndicator(
                             valueColor: AlwaysStoppedAnimation<Color>(
                               Palette.firebaseGrey,
                             ),
@@ -191,9 +191,8 @@ class _UserInfoScreenState extends State<UserInfoScreen> {
                                 _verificationEmailBeingSent = false;
                               });
                             },
-                            child: Padding(
-                              padding:
-                                  const EdgeInsets.only(top: 8.0, bottom: 8.0),
+                            child: const Padding(
+                              padding: EdgeInsets.only(top: 8.0, bottom: 8.0),
                               child: Text(
                                 'Verify',
                                 style: TextStyle(
@@ -256,6 +255,7 @@ class _UserInfoScreenState extends State<UserInfoScreen> {
                         setState(() {
                           _isSigningOut = false;
                         });
+                        if (!mounted) return;
                         Navigator.of(context)
                             .pushReplacement(_routeToSignInScreen());
                       },

@@ -11,10 +11,10 @@ class SignInScreen extends StatefulWidget {
   const SignInScreen({Key? key}) : super(key: key);
 
   @override
-  _SignInScreenState createState() => _SignInScreenState();
+  SignInScreenState createState() => SignInScreenState();
 }
 
-class _SignInScreenState extends State<SignInScreen> {
+class SignInScreenState extends State<SignInScreen> {
   final FocusNode _emailFocusNode = FocusNode();
   final FocusNode _passwordFocusNode = FocusNode();
 
@@ -26,6 +26,7 @@ class _SignInScreenState extends State<SignInScreen> {
     User? user = FirebaseAuth.instance.currentUser;
 
     if (user != null) {
+      if (!mounted) return firebaseApp;
       Navigator.of(context).pushReplacement(
         MaterialPageRoute(
           builder: (context) => UserInfoScreen(
@@ -73,14 +74,14 @@ class _SignInScreenState extends State<SignInScreen> {
                             ),
                           ),
                           const SizedBox(height: 20),
-                          Text(
+                          const Text(
                             'FlutterFire',
                             style: TextStyle(
                               color: Palette.firebaseYellow,
                               fontSize: 40,
                             ),
                           ),
-                          Text(
+                          const Text(
                             'Authentication',
                             style: TextStyle(
                               color: Palette.firebaseOrange,
@@ -102,7 +103,7 @@ class _SignInScreenState extends State<SignInScreen> {
                             passwordFocusNode: _passwordFocusNode,
                           );
                         }
-                        return CircularProgressIndicator(
+                        return const CircularProgressIndicator(
                           valueColor: AlwaysStoppedAnimation<Color>(
                             Palette.firebaseOrange,
                           ),

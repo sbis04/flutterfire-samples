@@ -10,17 +10,16 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  cupertino_icons: ^1.0.2
-  firebase_core: ^1.13.1
-  firebase_auth: ^3.3.9
-  google_sign_in: ^5.2.4
-  cloud_firestore: ^3.1.10
+  firebase_core: ^1.17.1
+  firebase_auth: ^3.3.19
+  google_sign_in: ^5.3.2
+  cloud_firestore: ^3.1.17
   font_awesome_flutter: ^10.1.0
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  flutter_lints: ^1.0.0
+  flutter_lints: ^2.0.1
 
 flutter:
   uses-material-design: true
