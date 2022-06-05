@@ -17,10 +17,10 @@ class SignInForm extends StatefulWidget {
     required this.passwordFocusNode,
   }) : super(key: key);
   @override
-  _SignInFormState createState() => _SignInFormState();
+  SignInFormState createState() => SignInFormState();
 }
 
-class _SignInFormState extends State<SignInForm> {
+class SignInFormState extends State<SignInForm> {
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
 

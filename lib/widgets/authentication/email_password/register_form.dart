@@ -19,10 +19,10 @@ class RegisterForm extends StatefulWidget {
     required this.passwordFocusNode,
   }) : super(key: key);
   @override
-  _RegisterFormState createState() => _RegisterFormState();
+  RegisterFormState createState() => RegisterFormState();
 }
 
-class _RegisterFormState extends State<RegisterForm> {
+class RegisterFormState extends State<RegisterForm> {
   final TextEditingController _nameController = TextEditingController();
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutterfire_samples/res/custom_colors.dart';
 
 class Footer extends StatelessWidget {
   const Footer({Key? key}) : super(key: key);
@@ -67,17 +66,6 @@ class Footer extends StatelessWidget {
             ),
           ),
         ),
-        // Container(
-        //   decoration: BoxDecoration(
-        //     color: Palette.firebaseNavy,
-        //     borderRadius: const BorderRadius.only(
-        //       bottomLeft: Radius.circular(30.0),
-        //       bottomRight: Radius.circular(30.0),
-        //     ),
-        //   ),
-        //   height: 20.0,
-        //   width: double.maxFinite,
-        // ),
       ],
     );
   }
