@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutterfire_samples/res/custom_colors.dart';
 import 'package:flutterfire_samples/res/structure.dart';
 import 'package:flutterfire_samples/widgets/app_bar_title.dart';
@@ -21,6 +22,9 @@ class _HomeScreenState extends State<HomeScreen> {
       appBar: AppBar(
         elevation: 0,
         backgroundColor: Palette.firebaseNavy,
+        systemOverlayStyle: const SystemUiOverlayStyle(
+          statusBarColor: Palette.firebaseNavy,
+        ),
         title: const AppBarTitle(
           sectionName: 'Samples',
         ),
