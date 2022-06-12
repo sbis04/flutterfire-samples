@@ -21,6 +21,14 @@ List<Map<String, dynamic>> menu = [
         'widget': const email.SignInScreen(),
       },
       {
+        'name': 'Phone Sign In',
+        'icon': const Icon(
+          Icons.phone,
+          color: Palette.firebaseNavy,
+        ),
+        'widget': null,
+      },
+      {
         'name': 'Google Sign In',
         'icon': const FaIcon(
           FontAwesomeIcons.google,
