@@ -2,9 +2,7 @@
 
 This repo is created to contain various sample apps demonstrating the integration of **Firebase** with **Flutter**. The final goal is to create something like the [Flutter Gallery](https://github.com/flutter/gallery) app, but for Firebase.
 
-Also, the recently changes introduced in **Flutter 2** create some confusion, mostly with the beginners, as many other repositories are not yet updated to the latest version. Even [FlutterFire](https://firebase.flutter.dev/) plugins got a lot of improvements and most of them support null safety now.
-
-> **NOTE:** This entire repo uses the latest **Flutter 2.0 stable** release, with **null safety** enabled, for creating the sample apps.
+> **NOTE:** This entire repo uses the latest **Flutter 3.0 stable** release, with **null safety** enabled, for creating the sample apps.
 
 If you like the content of this repository, please don't forget to :star: this.
 
@@ -15,8 +13,6 @@ Currently the repo contains:
 * [Firebase Authentication (email & password)](https://github.com/sbis04/flutterfire-samples/tree/email-password)
 * [Firebase Authentication (using Google Sign-In)](https://github.com/sbis04/flutterfire-samples/tree/google-sign-in)
 * [Cloud Firestore database (CRUD operations)](https://github.com/sbis04/flutterfire-samples/tree/crud-firestore)
-
-The `master` branch is currently having the implementation for Firebase Authentication (using Google Sign-In), but it will soon be updated.
 
 ## Contents
 
