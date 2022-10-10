@@ -8,25 +8,28 @@ import '../../../screens/authentication/email_password/email_password.dart';
 import '../../custom_form_field.dart';
 
 class SignInForm extends StatefulWidget {
-  final FocusNode emailFocusNode;
-  final FocusNode passwordFocusNode;
+  final FocusNode phoneNumberFocusNode;
 
   const SignInForm({
     Key? key,
-    required this.emailFocusNode,
-    required this.passwordFocusNode,
+    required this.phoneNumberFocusNode,
   }) : super(key: key);
   @override
   SignInFormState createState() => SignInFormState();
 }
 
 class SignInFormState extends State<SignInForm> {
-  final TextEditingController _emailController = TextEditingController();
-  final TextEditingController _passwordController = TextEditingController();
+  late final TextEditingController _phoneNumberController;
 
   final _signInFormKey = GlobalKey<FormState>();
 
   bool _isSigningIn = false;
+
+  @override
+  void initState() {
+    _phoneNumberController = TextEditingController();
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -43,28 +46,15 @@ class SignInFormState extends State<SignInForm> {
             child: Column(
               children: [
                 CustomFormField(
-                  controller: _emailController,
-                  focusNode: widget.emailFocusNode,
-                  keyboardType: TextInputType.emailAddress,
-                  inputAction: TextInputAction.next,
+                  controller: _phoneNumberController,
+                  focusNode: widget.phoneNumberFocusNode,
+                  keyboardType: TextInputType.phone,
+                  inputAction: TextInputAction.done,
                   validator: (value) => Validator.validateEmail(
                     email: value,
                   ),
-                  label: 'Email',
-                  hint: 'Enter your email',
-                ),
-                const SizedBox(height: 16.0),
-                CustomFormField(
-                  controller: _passwordController,
-                  focusNode: widget.passwordFocusNode,
-                  keyboardType: TextInputType.text,
-                  inputAction: TextInputAction.done,
-                  validator: (value) => Validator.validatePassword(
-                    password: value,
-                  ),
-                  isObscure: true,
-                  label: 'Password',
-                  hint: 'Enter your password',
+                  label: 'Phone number',
+                  hint: 'Enter your phone number',
                 ),
               ],
             ),
@@ -94,37 +84,36 @@ class SignInFormState extends State<SignInForm> {
                         ),
                       ),
                       onPressed: () async {
-                        widget.emailFocusNode.unfocus();
-                        widget.passwordFocusNode.unfocus();
+                        widget.phoneNumberFocusNode.unfocus();
 
-                        setState(() {
-                          _isSigningIn = true;
-                        });
+                        // setState(() {
+                        //   _isSigningIn = true;
+                        // });
 
-                        if (_signInFormKey.currentState!.validate()) {
-                          User? user =
-                              await Authentication.signInUsingEmailPassword(
-                            context: context,
-                            email: _emailController.text,
-                            password: _passwordController.text,
-                          );
+                        // if (_signInFormKey.currentState!.validate()) {
+                        //   User? user =
+                        //       await Authentication.signInUsingEmailPassword(
+                        //     context: context,
+                        //     email: _emailController.text,
+                        //     password: _passwordController.text,
+                        //   );
 
-                          if (user != null) {
-                            Navigator.of(context).pop();
-                            Navigator.of(context).pop();
-                            Navigator.of(context).push(
-                              MaterialPageRoute(
-                                builder: (context) => UserInfoScreen(
-                                  user: user,
-                                ),
-                              ),
-                            );
-                          }
-                        }
+                        //   if (user != null) {
+                        //     Navigator.of(context).pop();
+                        //     Navigator.of(context).pop();
+                        //     Navigator.of(context).push(
+                        //       MaterialPageRoute(
+                        //         builder: (context) => UserInfoScreen(
+                        //           user: user,
+                        //         ),
+                        //       ),
+                        //     );
+                        //   }
+                        // }
 
-                        setState(() {
-                          _isSigningIn = false;
-                        });
+                        // setState(() {
+                        //   _isSigningIn = false;
+                        // });
                       },
                       child: const Padding(
                         padding: EdgeInsets.only(top: 16.0, bottom: 16.0),
