@@ -1,30 +1,30 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutterfire_samples/res/custom_colors.dart';
-import 'package:flutterfire_samples/utils/g_authentication.dart';
+import 'package:flutterfire_samples/utils/authentication/google_auth/authentication.dart';
 import 'package:flutterfire_samples/widgets/app_bar_title.dart';
 
-import 'g_sign_in_screen.dart';
+import 'sign_in_screen.dart';
 
-class GUserInfoScreen extends StatefulWidget {
-  const GUserInfoScreen({Key? key, required User user})
+class UserInfoScreen extends StatefulWidget {
+  const UserInfoScreen({Key? key, required User user})
       : _user = user,
         super(key: key);
 
   final User _user;
 
   @override
-  _GUserInfoScreenState createState() => _GUserInfoScreenState();
+  UserInfoScreenState createState() => UserInfoScreenState();
 }
 
-class _GUserInfoScreenState extends State<GUserInfoScreen> {
+class UserInfoScreenState extends State<UserInfoScreen> {
   late User _user;
   bool _isSigningOut = false;
 
   Route _routeToSignInScreen() {
     return PageRouteBuilder(
       pageBuilder: (context, animation, secondaryAnimation) =>
-          const GSignInScreen(),
+          const SignInScreen(),
       transitionsBuilder: (context, animation, secondaryAnimation, child) {
         var begin = const Offset(-1.0, 0.0);
         var end = Offset.zero;
@@ -83,8 +83,8 @@ class _GUserInfoScreenState extends State<GUserInfoScreen> {
                   : ClipOval(
                       child: Material(
                         color: Palette.firebaseGrey.withOpacity(0.3),
-                        child: Padding(
-                          padding: const EdgeInsets.all(16.0),
+                        child: const Padding(
+                          padding: EdgeInsets.all(16.0),
                           child: Icon(
                             Icons.person,
                             size: 60,
@@ -94,7 +94,7 @@ class _GUserInfoScreenState extends State<GUserInfoScreen> {
                       ),
                     ),
               const SizedBox(height: 16.0),
-              Text(
+              const Text(
                 'Hello',
                 style: TextStyle(
                   color: Palette.firebaseGrey,
@@ -104,7 +104,7 @@ class _GUserInfoScreenState extends State<GUserInfoScreen> {
               const SizedBox(height: 8.0),
               Text(
                 _user.displayName!,
-                style: TextStyle(
+                style: const TextStyle(
                   color: Palette.firebaseYellow,
                   fontSize: 26,
                 ),
@@ -112,7 +112,7 @@ class _GUserInfoScreenState extends State<GUserInfoScreen> {
               const SizedBox(height: 8.0),
               Text(
                 '( ${_user.email!} )',
-                style: TextStyle(
+                style: const TextStyle(
                   color: Palette.firebaseOrange,
                   fontSize: 20,
                   letterSpacing: 0.5,
@@ -146,10 +146,11 @@ class _GUserInfoScreenState extends State<GUserInfoScreen> {
                         setState(() {
                           _isSigningOut = true;
                         });
-                        await GAuthentication.signOut(context: context);
+                        await Authentication.signOut(context: context);
                         setState(() {
                           _isSigningOut = false;
                         });
+                        if (!mounted) return;
                         Navigator.of(context)
                             .pushReplacement(_routeToSignInScreen());
                       },

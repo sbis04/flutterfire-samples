@@ -1,17 +1,17 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutterfire_samples/res/fire_assets.dart';
-import 'package:flutterfire_samples/screens/authentication/google_sign_in/g_user_info_screen.dart';
-import 'package:flutterfire_samples/utils/g_authentication.dart';
+import 'package:flutterfire_samples/screens/authentication/google_sign_in/user_info_screen.dart';
+import 'package:flutterfire_samples/utils/authentication/google_auth/authentication.dart';
 
 class GoogleSignInButton extends StatefulWidget {
   const GoogleSignInButton({Key? key}) : super(key: key);
 
   @override
-  _GoogleSignInButtonState createState() => _GoogleSignInButtonState();
+  GoogleSignInButtonState createState() => GoogleSignInButtonState();
 }
 
-class _GoogleSignInButtonState extends State<GoogleSignInButton> {
+class GoogleSignInButtonState extends State<GoogleSignInButton> {
   bool _isSigningIn = false;
 
   @override
@@ -36,7 +36,7 @@ class _GoogleSignInButtonState extends State<GoogleSignInButton> {
                   _isSigningIn = true;
                 });
                 User? user =
-                    await GAuthentication.signInWithGoogle(context: context);
+                    await Authentication.signInWithGoogle(context: context);
 
                 setState(() {
                   _isSigningIn = false;
@@ -45,7 +45,7 @@ class _GoogleSignInButtonState extends State<GoogleSignInButton> {
                 if (user != null) {
                   Navigator.of(context).pushReplacement(
                     MaterialPageRoute(
-                      builder: (context) => GUserInfoScreen(
+                      builder: (context) => UserInfoScreen(
                         user: user,
                       ),
                     ),

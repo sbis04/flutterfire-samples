@@ -4,11 +4,11 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutterfire_samples/firebase_options.dart';
-import 'package:flutterfire_samples/screens/authentication/google_sign_in/g_user_info_screen.dart';
+import 'package:flutterfire_samples/screens/authentication/google_sign_in/user_info_screen.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:flutter/foundation.dart' show kIsWeb;
 
-class GAuthentication {
+class Authentication {
   static SnackBar customSnackBar({required String content}) {
     return SnackBar(
       backgroundColor: Colors.black,
@@ -31,7 +31,7 @@ class GAuthentication {
     if (user != null) {
       Navigator.of(context).pushReplacement(
         MaterialPageRoute(
-          builder: (context) => GUserInfoScreen(
+          builder: (context) => UserInfoScreen(
             user: user,
           ),
         ),
@@ -79,14 +79,14 @@ class GAuthentication {
         } on FirebaseAuthException catch (e) {
           if (e.code == 'account-exists-with-different-credential') {
             ScaffoldMessenger.of(context).showSnackBar(
-              GAuthentication.customSnackBar(
+              Authentication.customSnackBar(
                 content:
                     'The account already exists with a different credential',
               ),
             );
           } else if (e.code == 'invalid-credential') {
             ScaffoldMessenger.of(context).showSnackBar(
-              GAuthentication.customSnackBar(
+              Authentication.customSnackBar(
                 content:
                     'Error occurred while accessing credentials. Try again.',
               ),
@@ -94,7 +94,7 @@ class GAuthentication {
           }
         } catch (e) {
           ScaffoldMessenger.of(context).showSnackBar(
-            GAuthentication.customSnackBar(
+            Authentication.customSnackBar(
               content: 'Error occurred using Google Sign In. Try again.',
             ),
           );
@@ -115,7 +115,7 @@ class GAuthentication {
       await FirebaseAuth.instance.signOut();
     } catch (e) {
       ScaffoldMessenger.of(context).showSnackBar(
-        GAuthentication.customSnackBar(
+        Authentication.customSnackBar(
           content: 'Error signing out. Try again.',
         ),
       );

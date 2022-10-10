@@ -2,7 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutterfire_samples/res/custom_colors.dart';
 import 'package:flutterfire_samples/screens/database/crud/db_edit_screen.dart';
-import 'package:flutterfire_samples/utils/database.dart';
+import 'package:flutterfire_samples/utils/database/database.dart';
 
 class DbItemList extends StatelessWidget {
   @override

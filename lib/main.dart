@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'screens/main_screens/home_screen.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -15,12 +15,11 @@ class MyApp extends StatelessWidget {
       title: 'FlutterFire Samples',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        primarySwatch: Colors.indigo,
         brightness: Brightness.dark,
         fontFamily: 'OpenSans',
       ),
       // home: SignInScreen(),
-      home: HomeScreen(),
+      home: const HomeScreen(),
     );
   }
 }

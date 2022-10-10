@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutterfire_samples/res/custom_colors.dart';
-import 'package:flutterfire_samples/utils/g_authentication.dart';
+import 'package:flutterfire_samples/utils/authentication/google_auth/authentication.dart';
 import 'package:flutterfire_samples/widgets/authentication/google_sign_in/google_sign_in_button.dart';
 import 'package:flutterfire_samples/widgets/custom_back_button.dart';
 
-class GSignInScreen extends StatefulWidget {
-  const GSignInScreen({Key? key}) : super(key: key);
+class SignInScreen extends StatefulWidget {
+  const SignInScreen({Key? key}) : super(key: key);
 
   @override
-  _GSignInScreenState createState() => _GSignInScreenState();
+  SignInScreenState createState() => SignInScreenState();
 }
 
-class _GSignInScreenState extends State<GSignInScreen> {
+class SignInScreenState extends State<SignInScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -42,14 +42,14 @@ class _GSignInScreenState extends State<GSignInScreen> {
                           ),
                         ),
                         const SizedBox(height: 20),
-                        Text(
+                        const Text(
                           'FlutterFire',
                           style: TextStyle(
                             color: Palette.firebaseYellow,
                             fontSize: 40,
                           ),
                         ),
-                        Text(
+                        const Text(
                           'Authentication',
                           style: TextStyle(
                             color: Palette.firebaseOrange,
@@ -60,8 +60,7 @@ class _GSignInScreenState extends State<GSignInScreen> {
                     ),
                   ),
                   FutureBuilder(
-                    future:
-                        GAuthentication.initializeFirebase(context: context),
+                    future: Authentication.initializeFirebase(context: context),
                     builder: (context, snapshot) {
                       if (snapshot.hasError) {
                         return const Text('Error initializing Firebase');
@@ -69,7 +68,7 @@ class _GSignInScreenState extends State<GSignInScreen> {
                           ConnectionState.done) {
                         return const GoogleSignInButton();
                       }
-                      return CircularProgressIndicator(
+                      return const CircularProgressIndicator(
                         valueColor: AlwaysStoppedAnimation<Color>(
                           Palette.firebaseOrange,
                         ),

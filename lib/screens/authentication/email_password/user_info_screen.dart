@@ -1,23 +1,23 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutterfire_samples/res/custom_colors.dart';
-import 'package:flutterfire_samples/utils/ep_authentication.dart';
+import 'package:flutterfire_samples/utils/authentication/email_password_auth/authentication.dart';
 import 'package:flutterfire_samples/widgets/app_bar_title.dart';
 
-import 'ep_sign_in_screen.dart';
+import 'sign_in_screen.dart';
 
-class EPUserInfoScreen extends StatefulWidget {
-  const EPUserInfoScreen({Key? key, required User user})
+class UserInfoScreen extends StatefulWidget {
+  const UserInfoScreen({Key? key, required User user})
       : _user = user,
         super(key: key);
 
   final User _user;
 
   @override
-  _EPUserInfoScreenState createState() => _EPUserInfoScreenState();
+  UserInfoScreenState createState() => UserInfoScreenState();
 }
 
-class _EPUserInfoScreenState extends State<EPUserInfoScreen> {
+class UserInfoScreenState extends State<UserInfoScreen> {
   late bool _isEmailVerified;
   late User _user;
 
@@ -27,7 +27,7 @@ class _EPUserInfoScreenState extends State<EPUserInfoScreen> {
   Route _routeToSignInScreen() {
     return PageRouteBuilder(
       pageBuilder: (context, animation, secondaryAnimation) =>
-          const EPSignInScreen(),
+          const SignInScreen(),
       transitionsBuilder: (context, animation, secondaryAnimation, child) {
         var begin = const Offset(-1.0, 0.0);
         var end = Offset.zero;
@@ -77,8 +77,8 @@ class _EPUserInfoScreenState extends State<EPUserInfoScreen> {
               ClipOval(
                 child: Material(
                   color: Palette.firebaseGrey.withOpacity(0.3),
-                  child: Padding(
-                    padding: const EdgeInsets.all(8.0),
+                  child: const Padding(
+                    padding: EdgeInsets.all(8.0),
                     child: Icon(
                       Icons.person,
                       size: 42,
@@ -88,7 +88,7 @@ class _EPUserInfoScreenState extends State<EPUserInfoScreen> {
                 ),
               ),
               const SizedBox(height: 16.0),
-              Text(
+              const Text(
                 'Hello',
                 style: TextStyle(
                   color: Palette.firebaseGrey,
@@ -98,7 +98,7 @@ class _EPUserInfoScreenState extends State<EPUserInfoScreen> {
               const SizedBox(height: 8.0),
               Text(
                 widget._user.displayName!,
-                style: TextStyle(
+                style: const TextStyle(
                   color: Palette.firebaseYellow,
                   fontSize: 26,
                 ),
@@ -166,7 +166,7 @@ class _EPUserInfoScreenState extends State<EPUserInfoScreen> {
                   mainAxisSize: MainAxisSize.min,
                   children: [
                     _verificationEmailBeingSent
-                        ? CircularProgressIndicator(
+                        ? const CircularProgressIndicator(
                             valueColor: AlwaysStoppedAnimation<Color>(
                               Palette.firebaseGrey,
                             ),
@@ -191,9 +191,8 @@ class _EPUserInfoScreenState extends State<EPUserInfoScreen> {
                                 _verificationEmailBeingSent = false;
                               });
                             },
-                            child: Padding(
-                              padding:
-                                  const EdgeInsets.only(top: 8.0, bottom: 8.0),
+                            child: const Padding(
+                              padding: EdgeInsets.only(top: 8.0, bottom: 8.0),
                               child: Text(
                                 'Verify',
                                 style: TextStyle(
@@ -209,7 +208,7 @@ class _EPUserInfoScreenState extends State<EPUserInfoScreen> {
                     IconButton(
                       icon: const Icon(Icons.refresh),
                       onPressed: () async {
-                        User? user = await EPAuthentication.refreshUser(_user);
+                        User? user = await Authentication.refreshUser(_user);
 
                         if (user != null) {
                           setState(() {
@@ -256,6 +255,7 @@ class _EPUserInfoScreenState extends State<EPUserInfoScreen> {
                         setState(() {
                           _isSigningOut = false;
                         });
+                        if (!mounted) return;
                         Navigator.of(context)
                             .pushReplacement(_routeToSignInScreen());
                       },
