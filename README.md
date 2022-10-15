@@ -18,10 +18,10 @@ Currently the repo contains:
 
 The aim of this repo is to include examples for:
 
-- [ ] **Authentication**
+- [x] **Authentication**
   - [x] Email & password registration & login
   - [x] Login using various providers (Google, GitHub, Apple, etc.)*
-  - [ ] Phone OTP verification
+  - [x] Phone OTP verification
 
 
 - [ ] **Database**
@@ -57,11 +57,11 @@ This is a sample app demonstrating **Firebase Authentication** in Flutter using 
 
 > **NOTE:** This sample app uses the latest **Flutter 2.0 stable release**, with *null safety* enabled. Make sure you are using Flutter 2 in order to prevent any build errors. Tested on Android, iOS & Web.
 
-![](https://github.com/sbis04/flutterfire-samples/raw/master/screenshots/flutterfire_authentication_cover.png)
+![](screenshots/flutterfire_authentication_cover.png)
 
 App in action :rocket: :
 
-![](https://github.com/sbis04/flutterfire-samples/raw/master/screenshots/flutterfire_auth.gif)
+![](screenshots/flutterfire_auth.gif)
 
 ## Plugins
 
