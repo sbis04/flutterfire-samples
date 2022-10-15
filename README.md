@@ -49,20 +49,6 @@ The aim of this repo is to include examples for:
 
 > *Only Google Sign-In implemented currently.
 
----
-
-## Current `master` branch description
-
-This is a sample app demonstrating **Firebase Authentication** in Flutter using email & password. Also shows how to send *email verification* and set up *auto login*.
-
-> **NOTE:** This sample app uses the latest **Flutter 2.0 stable release**, with *null safety* enabled. Make sure you are using Flutter 2 in order to prevent any build errors. Tested on Android, iOS & Web.
-
-![](screenshots/flutterfire_authentication_cover.png)
-
-App in action :rocket: :
-
-![](screenshots/flutterfire_auth.gif)
-
 ## Plugins
 
 For this project you have to add two plugins:
@@ -95,7 +81,7 @@ If you want to try out the this sample app, first you have to create and configu
 
 ## License
 
-Copyright (c) 2021 Souvik Biswas
+Copyright (c) 2022 Souvik Biswas
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
