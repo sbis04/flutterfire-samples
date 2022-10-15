@@ -2,7 +2,7 @@
 
 This repo is created to contain various sample apps demonstrating the integration of **Firebase** with **Flutter**. The final goal is to create something like the [Flutter Gallery](https://github.com/flutter/gallery) app, but for Firebase.
 
-> **NOTE:** This entire repo uses the latest **Flutter 3.0 stable** release, with **null safety** enabled, for creating the sample apps.
+> **NOTE:** This entire repo uses the latest **Flutter 3.3.4 stable** release, with **null safety** enabled, for creating the sample apps.
 
 If you like the content of this repository, please don't forget to :star: this.
 
