@@ -3,6 +3,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import '../screens/authentication/email_password/sign_in_screen.dart' as email;
 import '../screens/authentication/google_sign_in/sign_in_screen.dart' as google;
+import '../screens/authentication/phone_sign_in/sign_in_screen.dart' as phone;
 
 import 'custom_colors.dart';
 import 'fire_assets.dart';
@@ -26,7 +27,7 @@ List<Map<String, dynamic>> menu = [
           Icons.phone,
           color: Palette.firebaseNavy,
         ),
-        'widget': null,
+        'widget': const phone.SignInScreen(),
       },
       {
         'name': 'Google Sign In',

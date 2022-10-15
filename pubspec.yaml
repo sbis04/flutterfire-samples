@@ -15,6 +15,7 @@ dependencies:
   google_sign_in: ^5.4.2
   cloud_firestore: ^3.5.1
   font_awesome_flutter: ^10.2.1
+  pin_code_fields: ^7.4.0
 
 dev_dependencies:
   flutter_test:

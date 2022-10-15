@@ -97,7 +97,7 @@ class UserInfoScreenState extends State<UserInfoScreen> {
               ),
               const SizedBox(height: 8.0),
               Text(
-                widget._user.displayName!,
+                widget._user.displayName ?? '',
                 style: const TextStyle(
                   color: Palette.firebaseYellow,
                   fontSize: 26,
