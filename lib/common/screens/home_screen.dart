@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutterfire_samples/res/custom_colors.dart';
 import 'package:flutterfire_samples/res/structure.dart';
-import 'package:flutterfire_samples/widgets/app_bar_title.dart';
-import 'package:flutterfire_samples/widgets/footer.dart';
+import 'package:flutterfire_samples/common/widgets/app_bar_title.dart';
+import 'package:flutterfire_samples/common/widgets/footer.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
