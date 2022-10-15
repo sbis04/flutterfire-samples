@@ -1,4 +1,4 @@
-# FlutterFire Samples
+![](screenshots/flutterfire-samples-repo-cover.png)
 
 This repo is created to contain various sample apps demonstrating the integration of **Firebase** with **Flutter**. The final goal is to create something like the [Flutter Gallery](https://github.com/flutter/gallery) app, but for Firebase.
 
