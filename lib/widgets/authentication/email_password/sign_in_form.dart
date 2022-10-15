@@ -110,7 +110,9 @@ class SignInFormState extends State<SignInForm> {
                           );
 
                           if (user != null) {
-                            Navigator.of(context).pushReplacement(
+                            Navigator.of(context).pop();
+                            Navigator.of(context).pop();
+                            Navigator.of(context).push(
                               MaterialPageRoute(
                                 builder: (context) => UserInfoScreen(
                                   user: user,
@@ -142,7 +144,7 @@ class SignInFormState extends State<SignInForm> {
           const SizedBox(height: 16.0),
           InkWell(
             onTap: () {
-              Navigator.of(context).pushReplacement(
+              Navigator.of(context).push(
                 MaterialPageRoute(
                   builder: (context) => const RegisterScreen(),
                 ),
