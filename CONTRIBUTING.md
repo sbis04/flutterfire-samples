@@ -8,6 +8,8 @@ Make sure you go through the following before starting to work on any issue or s
 
 This repo is created to contain various sample apps demonstrating the integration of **Firebase** with **Flutter**. The final goal is to create something like the [Flutter Gallery](https://github.com/flutter/gallery) app, but for Firebase. So, the final version would also have the ability to display code snippets for each of the Firebase services showcased inside the project.
 
+> **NOTE:** For now, we are trying to get all the implementation of Firebase services in. Once it's done, work on code previews and adaptive screen sizes will be started.
+
 ## Environment Setup
 
 To run this project locally on your system you should have the latest version of **Flutter SDK** installed on your system. If you don't have it installed and setup, follow the steps [here](https://docs.flutter.dev/get-started/install).
