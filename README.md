@@ -68,6 +68,12 @@ If you want to try out the this sample app, first you have to create and configu
   https://github.com/sbis04/flutterfire-samples.git
   ```
 
+  > If you want to contribute to this project, instead of the above command -- **fork** this project and then **clone** using:
+  >
+  > ```bash
+  > https://github.com/<your-user-id>/flutterfire-samples.git
+  > ```
+
 * Create a new Firebase project from the [console](https://console.firebase.google.com/).
 
 * Configure the Firebase for each platform.
