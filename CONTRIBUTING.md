@@ -14,10 +14,12 @@ To run this project locally on your system you should have the latest version of
 
 Follow these steps:
 
-* Clone the project:
+* **Fork** this repository.
+
+* Then clone the repo locally using:
   
   ```bash
-  https://github.com/sbis04/flutterfire-samples.git
+  https://github.com/<your-user-id>/flutterfire-samples.git
   ```
 
 * Create a new Firebase project from the [console](https://console.firebase.google.com/).
