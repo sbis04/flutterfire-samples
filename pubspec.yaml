@@ -16,6 +16,7 @@ dependencies:
   cloud_firestore: ^3.5.1
   font_awesome_flutter: ^10.2.1
   pin_code_fields: ^7.4.0
+  firebase_database: ^9.1.7
 
 dev_dependencies:
   flutter_test:
