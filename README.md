@@ -18,10 +18,11 @@ Currently the repo contains:
 
 The aim of this repo is to include examples for:
 
-- [x] **Authentication**
+- [ ] **Authentication**
   - [x] Email & password registration & login
   - [x] Login using various providers (Google, GitHub, Apple, etc.)*
   - [x] Phone OTP verification
+  - [ ] Multi Factor Authentication (MFA)
 
 
 - [ ] **Database**
