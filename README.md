@@ -32,7 +32,7 @@ The aim of this repo is to include examples for:
 
 - [ ] **Backend Actions**
   - [ ] Cloud Functions
-  - [ ] User Presence tracking
+  - [x] User Presence tracking
   - [ ] Push notifications using Firebase Cloud Messaging (FCM)
 
 - [ ] **Machine Learning**
