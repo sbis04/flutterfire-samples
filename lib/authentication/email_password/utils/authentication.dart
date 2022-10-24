@@ -27,8 +27,8 @@ class Authentication {
 
     try {
       UserCredential userCredential = await auth.signInWithEmailAndPassword(
-        email: email,
-        password: password,
+        email: email.trim(),
+        password: password.trim(),
       );
       user = userCredential.user;
     } on FirebaseAuthException catch (e) {
@@ -63,8 +63,8 @@ class Authentication {
 
     try {
       UserCredential userCredential = await auth.createUserWithEmailAndPassword(
-        email: email,
-        password: password,
+        email: email.trim(),
+        password: password.trim(),
       );
 
       user = userCredential.user;

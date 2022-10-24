@@ -142,9 +142,9 @@ class RegisterFormState extends State<RegisterForm> {
                         if (_registerFormKey.currentState!.validate()) {
                           User? user =
                               await Authentication.registerUsingEmailPassword(
-                            name: _nameController.text,
-                            email: _emailController.text,
-                            password: _passwordController.text,
+                            name: _nameController.text.trim(),
+                            email: _emailController.text.trim(),
+                            password: _passwordController.text.trim(),
                             context: context,
                           );
 
